@@ -1,6 +1,6 @@
 const { readFileSync } = require("fs");
 const { parse } = require("babylon");
-const Dedupe = require("./lib/dedupe");
+const CPA = require("./lib/cpa");
 
 const filename = process.argv[2];
 if (!filename) {
@@ -14,6 +14,4 @@ const ast = parse(input, {
   location: false
 }).program;
 
-const dedupe = new Dedupe(ast);
-
-dedupe.run();
+new CPA(ast).run();
