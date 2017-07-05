@@ -2,4 +2,6 @@
 
 (WIP)
 
-Identify code patterns(functions, identifiers, literals) that are repeated across a bundle or multiple files/bundles seamlessly.
+Identify code patterns that are repeated across a bundle seamlessly.
+
++ Works only across function boundaries 

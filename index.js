@@ -10,8 +10,7 @@ if (!filename) {
 const input = readFileSync(filename, "utf-8");
 
 const ast = parse(input, {
-  ranges: false,
-  location: false
+  sourceFilename: filename
 }).program;
 
 new CPA(ast).run();
