@@ -1,6 +1,6 @@
 {
   "name": "js-cpa",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Code pattern analysis for JS",
   "main": "index.js",
   "bin": "bin.js",
