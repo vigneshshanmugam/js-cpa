@@ -7,7 +7,12 @@
   "scripts": {},
   "author": "Vignesh Shanmugam <vignesh.shanmugam22@gmail.com> (https://vigneshh.in)",
   "contributors": ["Boopathi Raaja", "Vignesh Shanmugam"],
+  "homepage": "https://github.com/vigneshshanmugam/js-cpa",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vigneshshanmugam/js-cpa.git"
+  },
   "dependencies": {
     "babel-generator": "^6.25.0",
     "babel-types": "^6.25.0",
