@@ -13,4 +13,4 @@ const ast = parse(input, {
   sourceFilename: filename
 }).program;
 
-cpa.run(ast);
+cpa.run(ast, filename);

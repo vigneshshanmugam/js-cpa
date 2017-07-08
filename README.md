@@ -1,5 +1,17 @@
 # js-cpa
 
-Identify structurally similar code patterns that are repeated across a bundle seamlessly.
+Identify structurally similar code patterns that are duplicated across a bundle/file seamlessly.
 
-+ Works only across function boundaries 
+### Installation
+```sh
+npm install js-cpa
+```
+
+### Usage
+```js
+js-cpa <file-path>
+```
+
+### Features
+
++  Works only across function boundaries 
