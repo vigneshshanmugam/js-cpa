@@ -1,6 +1,6 @@
 # js-cpa
 
-Identify structurally similar code patterns that are duplicated across a bundle/file seamlessly.
+Identify structurally similar code patterns that are duplicated across a JavaScript bundle/file seamlessly.
 
 ### Installation
 ```sh
@@ -14,4 +14,5 @@ js-cpa <file-path>
 
 ### Features
 
-+  Works only across function boundaries 
++ Works only across function boundaries
++ Matches the longest common subsequence and ignores the children
