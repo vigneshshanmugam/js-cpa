@@ -4,7 +4,10 @@
   "description": "Code pattern analysis for JS",
   "main": "index.js",
   "bin": "bin.js",
-  "scripts": {},
+  "scripts": {
+    "test": "jest"
+  },
+  "keywords": ["code", "structure", "pattern", "bundle", "javascript"],
   "author": "Vignesh Shanmugam <vignesh.shanmugam22@gmail.com> (https://vigneshh.in)",
   "contributors": ["Boopathi Raaja", "Vignesh Shanmugam"],
   "homepage": "https://github.com/vigneshshanmugam/js-cpa",
@@ -18,6 +21,9 @@
     "babel-types": "^6.25.0",
     "babylon": "^6.17.4",
     "chalk": "^2.0.1"
+  },
+  "devDependencies": {
+    "jest": "^20.0.4"
   },
   "files": ["lib", "index.js", "bin.js", "LICENSE", "README.md"]
 }
