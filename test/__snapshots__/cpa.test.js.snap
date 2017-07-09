@@ -2,7 +2,7 @@
 
 exports[`should print matches with largest subexpression in the tree 1`] = `
 "
-Printing matches for file - /Users/vshanmugam/open-source/dedupe-code/match.js
+Printing matches for - /Users/vshanmugam/open-source/dedupe-code/match.js
 
 Found 2 matches
 
