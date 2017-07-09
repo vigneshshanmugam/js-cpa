@@ -24,7 +24,7 @@ Loc - 19 : 21
 function test1() {
   return function g() {};
 }
-,
+
 Loc - 24 : 26
 function test2() {
   return function g() {};
@@ -35,6 +35,6 @@ function test2() {
 `;
 
 exports[`should print no matches found 1`] = `
-"No matches found for /Users/vshanmugam/open-source/dedupe-code/nomatch.js
+"No matches found for /Users/vshanmugam/open-source/dedupe-code/nomatch.js 
 "
 `;

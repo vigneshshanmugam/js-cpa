@@ -7,7 +7,7 @@
   "scripts": {
     "test": "jest"
   },
-  "keywords": ["code", "structure", "pattern", "bundle", "javascript"],
+  "keywords": ["code", "repetition", "pattern", "duplication", "javascript"],
   "author": "Vignesh Shanmugam <vignesh.shanmugam22@gmail.com> (https://vigneshh.in)",
   "contributors": ["Boopathi Raaja", "Vignesh Shanmugam"],
   "homepage": "https://github.com/vigneshshanmugam/js-cpa",
