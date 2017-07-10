@@ -21,3 +21,6 @@ js-cpa <file-path>
 + Works only across function boundaries
 + Matches the longest common subsequence and ignores the children
 + Ignores comments on the Output
+
+
+Thanks to [Boopathi](https://twitter.com/heisenbugger) for making the implementation much simpler. 
