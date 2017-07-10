@@ -1,16 +1,17 @@
 const { readFileSync } = require("fs");
+const path = require("path");
 const { parse } = require("babylon");
 const cpa = require("./lib/cpa");
 
-const filename = process.argv[2];
-if (!filename) {
-  console.error("No filename specified");
-  process.exit(0);
-}
-const input = readFileSync(filename, "utf-8");
+const getBundle = (context, file) =>
+  readFileSync(path.join(context, file), "utf-8");
 
-const ast = parse(input, {
-  sourceFilename: filename
-}).program;
+const findSimilar = (context, file) => {
+  const input = getBundle(context, file);
+  const ast = parse(input, {
+    sourceFilename: file
+  }).program;
+  return cpa.run(ast, file);
+};
 
-cpa.run(ast, filename);
+module.exports = findSimilar;
