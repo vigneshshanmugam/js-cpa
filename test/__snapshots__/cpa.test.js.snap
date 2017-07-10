@@ -2,7 +2,7 @@
 
 exports[`should print matches with largest subexpression in the tree 1`] = `
 "
-Printing matches for - /Users/vshanmugam/open-source/dedupe-code/match.js
+Printing matches for - match.js
 
 Found 2 matches
 
@@ -35,6 +35,6 @@ function test2() {
 `;
 
 exports[`should print no matches found 1`] = `
-"No matches found for /Users/vshanmugam/open-source/dedupe-code/nomatch.js 
+"No matches found for nomatch.js
 "
 `;

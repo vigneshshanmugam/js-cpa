@@ -1,21 +1,12 @@
 jest.mock("chalk");
+jest.mock('path');
 
-const cpa = require("../lib/cpa");
+const findMatches = require("../");
 const { parse } = require("babylon");
 const path = require("path");
 const fs = require("fs");
+
 const fixturesDir = path.join(__dirname, "fixtures");
-
-const getBundle = file =>
-  fs.readFileSync(path.join(fixturesDir, file), "utf-8");
-
-const getOutput = file => {
-  const input = getBundle(file);
-  const ast = parse(input, {
-    sourceFilename: file
-  }).program;
-  return cpa.run(ast, file);
-};
 
 let result,
   write = process.stdout.write,
@@ -35,11 +26,11 @@ afterEach(() => {
 });
 
 test("should print no matches found", () => {
-  const noMatch = getOutput("nomatch.js");
+  const noMatch = findMatches(fixturesDir, "nomatch.js");
   expect(result).toMatchSnapshot();
 });
 
 test("should print matches with largest subexpression in the tree", () => {
-  const match = getOutput("match.js");
+  const match = findMatches(fixturesDir, "match.js");
   expect(result).toMatchSnapshot();
 });
