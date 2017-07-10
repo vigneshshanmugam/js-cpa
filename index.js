@@ -9,7 +9,8 @@ const getBundle = (context, file) =>
 const findMatches = (context, file) => {
   const input = getBundle(context, file);
   const ast = parse(input, {
-    sourceFilename: file
+    sourceFilename: file,
+    sourceType: "module"
   }).program;
   return cpa.run(ast, file);
 };

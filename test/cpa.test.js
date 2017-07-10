@@ -34,3 +34,8 @@ test("should print matches with largest subexpression in the tree", () => {
   const match = findMatches(fixturesDir, "match.js");
   expect(result).toMatchSnapshot();
 });
+
+test("should work with modules", () => {
+  const match = findMatches(fixturesDir, "with-modules.js");
+  expect(result).toMatchSnapshot();
+});

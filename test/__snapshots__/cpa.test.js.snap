@@ -38,3 +38,37 @@ exports[`should print no matches found 1`] = `
 "No matches found for nomatch.js
 "
 `;
+
+exports[`should work with modules 1`] = `
+"
+Printing matches for - with-modules.js
+
+Found 2 matches
+
+Loc - 5 : 5
+function f() {}
+
+Loc - 10 : 10
+function g() {}
+
+
+Found 3 matches
+
+Loc - 9 : 11
+function test() {
+  return function g() {};
+}
+
+Loc - 19 : 21
+function test1() {
+  return function g() {};
+}
+
+Loc - 24 : 26
+function test2() {
+  return function g() {};
+}
+
+
+"
+`;
