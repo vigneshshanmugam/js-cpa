@@ -16,6 +16,11 @@ npm install js-cpa
 js-cpa <file-path>
 ```
 
+```js
+const findMatches = require('js-cpa');
+findMatches(context, filename)
+```
+
 ### Features
 
 + Works only across function boundaries
