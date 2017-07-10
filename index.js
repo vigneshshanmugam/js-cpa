@@ -6,7 +6,7 @@ const cpa = require("./lib/cpa");
 const getBundle = (context, file) =>
   readFileSync(path.join(context, file), "utf-8");
 
-const findSimilar = (context, file) => {
+const findMatches = (context, file) => {
   const input = getBundle(context, file);
   const ast = parse(input, {
     sourceFilename: file
@@ -14,4 +14,4 @@ const findSimilar = (context, file) => {
   return cpa.run(ast, file);
 };
 
-module.exports = findSimilar;
+module.exports = findMatches;

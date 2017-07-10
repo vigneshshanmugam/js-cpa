@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-const findSimilar = require("./index");
+const findMatches = require("./index");
 
 const filename = process.argv[2];
 if (!filename) {
@@ -8,4 +8,4 @@ if (!filename) {
   process.exit(0);
 }
 
-findSimilar(process.cwd(), filename);
+findMatches(process.cwd(), filename);

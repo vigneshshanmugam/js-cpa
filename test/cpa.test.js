@@ -1,7 +1,7 @@
 jest.mock("chalk");
 jest.mock('path');
 
-const findSimilar = require("../");
+const findMatches = require("../");
 const { parse } = require("babylon");
 const path = require("path");
 const fs = require("fs");
@@ -26,11 +26,11 @@ afterEach(() => {
 });
 
 test("should print no matches found", () => {
-  const noMatch = findSimilar(fixturesDir, "nomatch.js");
+  const noMatch = findMatches(fixturesDir, "nomatch.js");
   expect(result).toMatchSnapshot();
 });
 
 test("should print matches with largest subexpression in the tree", () => {
-  const match = findSimilar(fixturesDir, "match.js");
+  const match = findMatches(fixturesDir, "match.js");
   expect(result).toMatchSnapshot();
 });
