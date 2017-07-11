@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 
 const findMatches = require("./index");
+const path = require("path");
 
 const filename = process.argv[2];
 if (!filename) {
@@ -8,4 +9,4 @@ if (!filename) {
   process.exit(0);
 }
 
-findMatches(process.cwd(), filename);
+findMatches(path.join(process.cwd(), filename));

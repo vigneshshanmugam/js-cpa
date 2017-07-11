@@ -18,7 +18,7 @@ js-cpa <file-path>
 
 ```js
 const findMatches = require('js-cpa');
-findMatches(context, filename)
+findMatches(filePath)
 ```
 
 ### Features
