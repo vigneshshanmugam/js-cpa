@@ -3,13 +3,14 @@ const path = require("path");
 const { parse } = require("babylon");
 const cpa = require("./lib/cpa");
 
-const getBundle = (context, file) =>
-  readFileSync(path.join(context, file), "utf-8");
+const getBundle = (file) =>
+  readFileSync(file, "utf-8");
 
-const findMatches = (context, file) => {
-  const input = getBundle(context, file);
+const findMatches = (file) => {
+  const input = getBundle(file);
   const ast = parse(input, {
-    sourceFilename: file
+    sourceFilename: file,
+    sourceType: "module"
   }).program;
   return cpa.run(ast, file);
 };
