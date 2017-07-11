@@ -33,8 +33,3 @@ test("should print matches with largest subexpression in the tree", () => {
   const match = findMatches(path.join(fixturesDir, "match.js"));
   expect(result).toMatchSnapshot();
 });
-
-test("should print no matches again", () => {
-  const match = findMatches(path.join(fixturesDir, "nomatch.js"));
-  expect(result).toMatchSnapshot();
-});

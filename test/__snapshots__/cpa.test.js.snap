@@ -34,63 +34,6 @@ function test2() {
 "
 `;
 
-exports[`should print no matches again 1`] = `
-"
-Printing matches for - test/fixtures/nomatch.js
-
-Found 2 matches
-
-Loc - 1 : 8
-function foo() {
-  function aaa() {}
-
-  function d() {
-    function e() {
-      return \\"asd\\";
-    }
-  }
-}
-
-Loc - 1 : 8
-function foo() {
-  function aaa() {}
-
-  function d() {
-    function e() {
-      return \\"asd\\";
-    }
-  }
-}
-
-
-Found 2 matches
-
-Loc - 10 : 17
-function bar() {
-  async function aaa() {}
-
-  function d() {
-    function e() {
-      return \\"10\\";
-    }
-  }
-}
-
-Loc - 10 : 17
-function bar() {
-  async function aaa() {}
-
-  function d() {
-    function e() {
-      return \\"10\\";
-    }
-  }
-}
-
-
-"
-`;
-
 exports[`should print no matches found 1`] = `
 "No matches found for test/fixtures/nomatch.js
 "

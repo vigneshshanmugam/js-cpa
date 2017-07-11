@@ -1,7 +1,7 @@
 const { readFileSync } = require("fs");
 const path = require("path");
 const { parse } = require("babylon");
-const cpa = require("./lib/cpa");
+const CPA = require("./lib/cpa");
 
 const getBundle = (file) =>
   readFileSync(file, "utf-8");
@@ -11,7 +11,7 @@ const findMatches = (file) => {
   const ast = parse(input, {
     sourceFilename: file
   }).program;
-  return cpa.run(ast, file);
+  return new CPA(ast, file).run();
 };
 
 module.exports = findMatches;
