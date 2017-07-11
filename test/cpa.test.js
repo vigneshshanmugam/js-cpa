@@ -1,5 +1,4 @@
 jest.mock("chalk");
-jest.mock('path');
 
 const findMatches = require("../");
 const { parse } = require("babylon");
@@ -26,16 +25,16 @@ afterEach(() => {
 });
 
 test("should print no matches found", () => {
-  const noMatch = findMatches(fixturesDir, "nomatch.js");
+  const noMatch = findMatches(path.join(fixturesDir, "nomatch.js"));
   expect(result).toMatchSnapshot();
 });
 
 test("should print matches with largest subexpression in the tree", () => {
-  const match = findMatches(fixturesDir, "match.js");
+  const match = findMatches(path.join(fixturesDir, "match.js"));
   expect(result).toMatchSnapshot();
 });
 
 test("should work with modules", () => {
-  const match = findMatches(fixturesDir, "with-modules.js");
+  const match = findMatches(path.join(fixturesDir, "with-modules.js"));
   expect(result).toMatchSnapshot();
 });

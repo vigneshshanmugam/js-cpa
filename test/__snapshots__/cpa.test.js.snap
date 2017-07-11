@@ -2,7 +2,7 @@
 
 exports[`should print matches with largest subexpression in the tree 1`] = `
 "
-Printing matches for - match.js
+Printing matches for - test/fixtures/match.js
 
 Found 2 matches
 
@@ -35,13 +35,13 @@ function test2() {
 `;
 
 exports[`should print no matches found 1`] = `
-"No matches found for nomatch.js
+"No matches found for test/fixtures/nomatch.js
 "
 `;
 
 exports[`should work with modules 1`] = `
 "
-Printing matches for - with-modules.js
+Printing matches for - test/fixtures/with-modules.js
 
 Found 2 matches
 
