@@ -6,12 +6,13 @@ const CPA = require("./lib/cpa");
 const getBundle = (file) =>
   readFileSync(file, "utf-8");
 
-const findMatches = (file) => {
-  const input = getBundle(file);
+const findMatches = (file, getSource, reporter) => {
+  getSource = getSource || getBundle;
+  const input = getSource(file);
   const ast = parse(input, {
     sourceFilename: file
   }).program;
-  return new CPA(ast, file).run();
+  return new CPA(ast, file, reporter).run();
 };
 
 module.exports = findMatches;
