@@ -5,26 +5,26 @@ exports[`fixtures match.js 1`] = `
 
 Duplicate 1
 
-match.js → 5:5
+match.js:5:5
 function f() {}
 
-match.js → 6:6
+match.js:6:6
 function aa() {}
 
 
 Duplicate 2
 
-match.js → 10:12
+match.js:10:12
 function test() {
   return function g1() {};
 }
 
-match.js → 20:22
+match.js:20:22
 function test1() {
   return function g2() {};
 }
 
-match.js → 25:27
+match.js:25:27
 function test2() {
   return function g3() {};
 }
@@ -33,18 +33,6 @@ function test2() {
 `;
 
 exports[`fixtures nomatch.js 1`] = `
-"Found 1 matches
-
-Duplicate 1
-
-nomatch.js → 2:2
-function aaa() {}
-
-nomatch.js → 8:8
-function g2() {}
-
-nomatch.js → 19:19
-function f2() {}
-
+"No matches found
 "
 `;

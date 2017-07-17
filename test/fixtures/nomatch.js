@@ -4,9 +4,6 @@ function foo() {
     function e() {
       return "asd";
     }
-    function testa() {
-      function g2() {}
-    }
   }
 }
 
@@ -16,6 +13,5 @@ function bar() {
     function e() {
       return "10";
     }
-    function f2() {}
   }
 }
