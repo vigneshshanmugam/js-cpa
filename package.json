@@ -9,9 +9,18 @@
   "scripts": {
     "test": "jest"
   },
-  "keywords": ["code", "repetition", "pattern", "duplication", "javascript"],
+  "keywords": [
+    "code",
+    "repetition",
+    "pattern",
+    "duplication",
+    "javascript"
+  ],
   "author": "Vignesh Shanmugam <vignesh.shanmugam22@gmail.com> (https://vigneshh.in)",
-  "contributors": ["Boopathi Rajaa", "Vignesh Shanmugam"],
+  "contributors": [
+    "Boopathi Rajaa",
+    "Vignesh Shanmugam"
+  ],
   "homepage": "https://github.com/vigneshshanmugam/js-cpa",
   "license": "MIT",
   "repository": {
@@ -22,10 +31,15 @@
     "babel-generator": "^7.0.0-alpha.15",
     "babel-types": "^7.0.0-alpha.15",
     "babylon": "^7.0.0-alpha.16",
-    "chalk": "^2.0.1"
+    "chalk": "^2.0.1",
+    "commander": "^2.11.0"
   },
   "devDependencies": {
     "jest": "^20.0.4"
   },
-  "files": ["lib", "LICENSE", "README.md"]
+  "files": [
+    "lib",
+    "LICENSE",
+    "README.md"
+  ]
 }
