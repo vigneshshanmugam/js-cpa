@@ -27,5 +27,5 @@
   "devDependencies": {
     "jest": "^20.0.4"
   },
-  "files": ["lib", "index.js", "bin.js", "LICENSE", "README.md"]
+  "files": ["lib", "LICENSE", "README.md"]
 }
