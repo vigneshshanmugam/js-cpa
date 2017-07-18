@@ -3,11 +3,12 @@ function a() {
   function foo() {
     function aaa() {
       const asdasdsa = function f() {};
+      function aa() {}
     }
   }
 
   function test() {
-    return function g() {};
+    return function g1() {};
   }
   return `213`;
 }
@@ -17,10 +18,10 @@ function a() {
     const b = 20;
   }
   function test1() {
-    return function g() {};
+    return function g2() {};
   }
 }
 
 function test2() {
-  return function g() {};
+  return function g3() {};
 }

@@ -1,40 +1,56 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`should print matches with largest subexpression in the tree 1`] = `
-"
-Printing matches for - test/fixtures/match.js
+exports[`fixtures match.js 1`] = `
+"Found 2 matches
 
-Found 2 matches
+Duplicate 1
 
-Loc - 5 : 5
+match.js:5:5
 function f() {}
 
-Loc - 10 : 10
-function g() {}
+match.js:6:6
+function aa() {}
 
 
-Found 3 matches
+Duplicate 2
 
-Loc - 9 : 11
+match.js:10:12
 function test() {
-  return function g() {};
+  return function g1() {};
 }
 
-Loc - 19 : 21
+match.js:20:22
 function test1() {
-  return function g() {};
+  return function g2() {};
 }
 
-Loc - 24 : 26
+match.js:25:27
 function test2() {
-  return function g() {};
+  return function g3() {};
 }
-
 
 "
 `;
 
-exports[`should print no matches found 1`] = `
-"No matches found for test/fixtures/nomatch.js
+exports[`fixtures modules.js 1`] = `
+"Found 1 matches
+
+Duplicate 1
+
+modules.js:1:3
+function foo() {
+  return 10;
+}
+
+modules.js:5:7
+function bar() {
+  return 10;
+}
+
+"
+`;
+
+exports[`fixtures nomatch.js 1`] = `
+"No matches found
 "
 `;
