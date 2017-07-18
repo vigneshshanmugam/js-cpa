@@ -5,11 +5,13 @@ const fs = require("fs");
 const fixturesDir = path.join(__dirname, "fixtures");
 
 describe("fixtures", () => {
-  fs.readdirSync(fixturesDir).forEach(name =>
-    test(name, () => {
-      const fixture = fs.readFileSync(path.join(fixturesDir, name)).toString();
+  fs.readdirSync(fixturesDir).forEach(filename =>
+    test(filename, () => {
+      const fixture = fs
+        .readFileSync(path.join(fixturesDir, filename))
+        .toString();
       expect(
-        stringify(findDuplicates(fixture, name), {
+        stringify(findDuplicates(fixture, { filename, sourceType: "module" }), {
           colors: false,
           newline: false
         })

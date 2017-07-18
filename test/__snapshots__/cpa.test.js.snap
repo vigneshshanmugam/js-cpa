@@ -32,6 +32,24 @@ function test2() {
 "
 `;
 
+exports[`fixtures modules.js 1`] = `
+"Found 1 matches
+
+Duplicate 1
+
+modules.js:1:3
+function foo() {
+  return 10;
+}
+
+modules.js:5:7
+function bar() {
+  return 10;
+}
+
+"
+`;
+
 exports[`fixtures nomatch.js 1`] = `
 "No matches found
 "
