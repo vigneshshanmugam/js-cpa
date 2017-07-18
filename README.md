@@ -26,7 +26,7 @@ Usage: js-cpa [options] <file ...>
 Options:
 
   -V, --version              output the version number
-  -f, --filelist             read filelist from stdio stream - if/when you cross ARG_MAX. eg: ls *.js | js-cpa -f
+  -f, --filelist             read filelist from STDIN stream - if/when you cross ARG_MAX. eg: ls *.js | js-cpa -f
   -m, --module               parse files with sourceType=module
   -l, --language <language>  language (js|ts|flow)
   -t, --threshold <n>        Threshold (in bytes)
@@ -35,6 +35,7 @@ Options:
 ```
 
 ### API
+
 ```js
 const { findDuplicates, stringify }= require('js-cpa');
 const fs = require("fs");
