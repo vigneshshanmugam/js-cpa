@@ -11,10 +11,17 @@ describe("fixtures", () => {
         .readFileSync(path.join(fixturesDir, filename))
         .toString();
       expect(
-        stringify(findDuplicates(fixture, { filename, sourceType: "module" }), {
-          colors: false,
-          newline: false
-        })
+        stringify(
+          findDuplicates(fixture, {
+            filename,
+            sourceType: "module",
+            threshold: 0
+          }),
+          {
+            colors: false,
+            newline: false
+          }
+        )
       ).toMatchSnapshot();
     })
   );
