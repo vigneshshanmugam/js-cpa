@@ -4,7 +4,7 @@ Identify structurally similar code patterns that are duplicated across a JavaScr
 
 Running it on [Inferno](https://github.com/infernojs/inferno)
 
-<img width="746" alt="CPA on Inferno" src="https://user-images.githubusercontent.com/3902525/27997771-bb00c6da-64ff-11e7-9f12-56059f0ae617.png">
+<img width="490" alt="CPA on Inferno" src="https://user-images.githubusercontent.com/3902525/28320650-6bd7632e-6bd1-11e7-9837-2af42c79c687.png">
 
 ### Features
 
@@ -38,8 +38,10 @@ Options:
 ```js
 const { findDuplicates, stringify }= require('js-cpa');
 const fs = require("fs");
-const code = fs.readFileSync(filePath, "utf-8);
-const duplicates = findDuplicates(code);
+const code = fs.readFileSync(filePath, "utf-8");
+const duplicates = findDuplicates(code, {
+  filename: "test"
+});
 
 process.stdout.write(stringify(duplicates)); // prints to stdout
 ```
