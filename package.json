@@ -28,7 +28,6 @@
     "url": "git+https://github.com/vigneshshanmugam/js-cpa.git"
   },
   "dependencies": {
-    "babel-generator": "^7.0.0-alpha.15",
     "babel-types": "^7.0.0-alpha.15",
     "babylon": "^7.0.0-alpha.16",
     "chalk": "^2.0.1",
