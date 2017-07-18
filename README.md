@@ -1,6 +1,6 @@
 # js-cpa
 
-Identify structurally similar code patterns that are duplicated across a JavaScript bundle/file seamlessly.
+Identify structurally similar functions that are duplicated across a JavaScript bundle/file seamlessly.
 
 Running it on [Inferno](https://github.com/infernojs/inferno)
 
@@ -10,7 +10,7 @@ Running it on [Inferno](https://github.com/infernojs/inferno)
 
 + Works only across function boundaries
 + Matches the longest common subsequence and ignores the children
-+ Ignores comments on the Output
++ Ignores comments on the output
 
 ### Installation
 
@@ -29,8 +29,8 @@ Options:
   -f, --filelist             read filelist from STDIN stream - if/when you cross ARG_MAX. eg: ls *.js | js-cpa -f
   -m, --module               parse files with sourceType=module
   -l, --language <language>  language (js|ts|flow)
-  -t, --threshold <n>        Threshold (in bytes)
-  -C, --no-colors            Disable colors in output
+  -t, --threshold <n>        threshold (in bytes)
+  -C, --no-colors            disable colors in output
   -h, --help                 output usage information
 ```
 
@@ -47,4 +47,25 @@ const duplicates = findDuplicates(code, {
 process.stdout.write(stringify(duplicates)); // prints to stdout
 ```
 
+##### Options
+------
++ filename - name of the file used in the output
++ sourceType - denotes the mode the code should be parsed in. eg - script|module
++ language - denotes the language. eg - (js|ts|flow)
++ threshold - threshold in bytes
 
+##### findDuplicates(code, opts)
+------
+Finds the optimal duplicate functions that are structurally similar. It tries to find the longest matching subexpression across the AST which ignores the children(inner function) if the parent(outer function) is already mached
+
+##### findAllDuplicates(code, opts)
+------
+Finds all duplicate functions that are structurally similar.
+
+##### stringify(duplicates, options)
+------
+Gets the output in a more presentable way
+
+Options
++ colors - enable colors on the stdout
++ newline - prints newline after each duplicates
