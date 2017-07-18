@@ -1,6 +1,6 @@
 {
   "name": "js-cpa",
-  "version": "0.0.3",
+  "version": "0.1.0",
   "description": "Code pattern analysis for JS",
   "main": "lib/index.js",
   "bin": {
@@ -9,18 +9,9 @@
   "scripts": {
     "test": "jest"
   },
-  "keywords": [
-    "code",
-    "repetition",
-    "pattern",
-    "duplication",
-    "javascript"
-  ],
+  "keywords": ["code", "repetition", "pattern", "duplication", "javascript"],
   "author": "Vignesh Shanmugam <vignesh.shanmugam22@gmail.com> (https://vigneshh.in)",
-  "contributors": [
-    "Boopathi Rajaa",
-    "Vignesh Shanmugam"
-  ],
+  "contributors": ["Boopathi Rajaa", "Vignesh Shanmugam"],
   "homepage": "https://github.com/vigneshshanmugam/js-cpa",
   "license": "MIT",
   "repository": {
@@ -36,10 +27,5 @@
   "devDependencies": {
     "jest": "^20.0.4"
   },
-  "files": [
-    "bin",
-    "lib",
-    "LICENSE",
-    "README.md"
-  ]
+  "files": ["bin", "lib", "LICENSE", "README.md"]
 }
