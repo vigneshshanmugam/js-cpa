@@ -12,6 +12,10 @@ Running it on [Inferno](https://github.com/infernojs/inferno)
 + Matches the longest common subsequence and ignores the children
 + Ignores comments on the output
 
+### Related
+
++ [bundle-duplicates-plugin](https://github.com/vigneshshanmugam/bundle-duplicates-plugin) - Identify duplicate functions across all webpack JS bundles.
+
 ### Installation
 
 ```sh
