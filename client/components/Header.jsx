@@ -4,11 +4,8 @@ import { Layout } from "preact-mdl";
 export default () =>
   <Layout.Header>
     <Layout.HeaderRow>
-      <Layout.Title>
-        <h6>
-          <i class="material-icons">dashboard</i> Hello CPA
-        </h6>
-      </Layout.Title>
-      <h6>Hello CPA</h6>
+      <Layout.Title>Code Pattern Analysis</Layout.Title>
+      <Layout.Spacer />
+      <i class="material-icons">code</i>
     </Layout.HeaderRow>
   </Layout.Header>;
