@@ -3,6 +3,8 @@ import mdl from "material-design-lite/material";
 
 import Reporter from "./components/Reporter";
 
+import styles from "./style/index";
+
 window.addEventListener(
   "load",
   () => {

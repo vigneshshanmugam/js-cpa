@@ -3,7 +3,9 @@
     [
       "env",
       {
-        "targets": { "node": 7 }
+        "targets": {
+          "browsers": ["> 5%", "last 2 versions"]
+        }
       }
     ]
   ],

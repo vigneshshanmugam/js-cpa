@@ -10,9 +10,18 @@
     "test": "jest",
     "build": "webpack"
   },
-  "keywords": ["code", "repetition", "pattern", "duplication", "javascript"],
+  "keywords": [
+    "code",
+    "repetition",
+    "pattern",
+    "duplication",
+    "javascript"
+  ],
   "author": "Vignesh Shanmugam <vignesh.shanmugam22@gmail.com> (https://vigneshh.in)",
-  "contributors": ["Boopathi Rajaa", "Vignesh Shanmugam"],
+  "contributors": [
+    "Boopathi Rajaa",
+    "Vignesh Shanmugam"
+  ],
   "homepage": "https://github.com/vigneshshanmugam/js-cpa",
   "license": "MIT",
   "repository": {
@@ -37,12 +46,22 @@
     "exports-loader": "0.6.4",
     "jest": "^20.0.4",
     "material-design-lite": "1.3.0",
-    "mkdir": "0.0.2",
     "mkdirp": "0.5.1",
+    "normalize.css": "7.0.0",
+    "postcss": "6.0.8",
+    "postcss-cssnext": "3.0.2",
+    "postcss-import": "10.0.0",
+    "postcss-import-url": "2.2.0",
+    "postcss-loader": "2.0.6",
     "preact": "8.2.1",
     "preact-mdl": "2.2.1",
     "style-loader": "0.18.2",
     "webpack": "3.4.1"
   },
-  "files": ["bin", "lib", "LICENSE", "README.md"]
+  "files": [
+    "bin",
+    "lib",
+    "LICENSE",
+    "README.md"
+  ]
 }

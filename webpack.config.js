@@ -14,7 +14,7 @@ module.exports = {
   },
   resolve: {
     // modules: [path.resolve(__dirname\), 'node_modules'],
-    extensions: [".js", ".jsx"]
+    extensions: [".js", ".jsx", ".css"]
   },
   devtool: isDev ? "eval" : "source-map",
   watch: isDev,
@@ -27,17 +27,7 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        use: [
-          "style-loader",
-          {
-            loader: "css-loader",
-            options: {
-              modules: true,
-              minimize: !isDev,
-              localIdentName: `[name]__[local]`
-            }
-          }
-        ]
+        use: ["style-loader", "css-loader", "postcss-loader"]
       }
     ]
   },
