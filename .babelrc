@@ -1,0 +1,14 @@
+{
+  "presets": [
+    [
+      "env",
+      {
+        "targets": { "node": 7 }
+      }
+    ]
+  ],
+  "plugins": [
+    ["transform-react-jsx", { "pragma": "h" }],
+    "transform-class-properties"
+  ]
+}
