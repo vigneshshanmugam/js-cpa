@@ -1,7 +1,7 @@
-import { h, Component } from 'preact';
-import { Layout } from 'preact-mdl';
+import { h, Component } from "preact";
+import { Layout } from "preact-mdl";
 
-import Header from './Header';
+import Header from "./Header";
 
 export default class Reporter extends Component {
   constructor(...args) {

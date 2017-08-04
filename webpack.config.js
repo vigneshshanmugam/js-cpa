@@ -1,45 +1,45 @@
-const webpack = require('webpack');
-const path = require('path');
+const webpack = require("webpack");
+const path = require("path");
 
-console.log(path.resolve(__dirname, 'client', 'index.jsx'));
+console.log(path.resolve(__dirname, "client", "index.jsx"));
 
-const isDev = process.env.NODE_ENV === 'dev';
+const isDev = process.env.NODE_ENV === "dev";
 module.exports = {
   context: __dirname,
-  entry: './client/index',
+  entry: "./client/index",
   output: {
-    path: path.resolve(__dirname, 'public'),
-    filename: 'reporter.js',
-    publicPath: '/',
+    path: path.resolve(__dirname, "public"),
+    filename: "reporter.js",
+    publicPath: "/"
   },
   resolve: {
     // modules: [path.resolve(__dirname\), 'node_modules'],
-    extensions: ['.js', '.jsx'],
+    extensions: [".js", ".jsx"]
   },
-  devtool: isDev ? 'eval' : 'source-map',
+  devtool: isDev ? "eval" : "source-map",
   watch: isDev,
   module: {
     rules: [
       {
         test: /\.jsx?$/,
         exclude: /node_modules/,
-        loader: 'babel-loader',
+        loader: "babel-loader"
       },
       {
         test: /\.css$/,
         use: [
-          'style-loader',
+          "style-loader",
           {
-            loader: 'css-loader',
+            loader: "css-loader",
             options: {
               modules: true,
               minimize: !isDev,
-              localIdentName: `[name]__[local]`,
-            },
-          },
-        ],
-      },
-    ],
+              localIdentName: `[name]__[local]`
+            }
+          }
+        ]
+      }
+    ]
   },
   plugins: (plugins => {
     if (isDev) {
@@ -47,5 +47,5 @@ module.exports = {
       return plugins;
     }
     return plugins;
-  })([]),
+  })([])
 };

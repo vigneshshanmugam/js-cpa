@@ -1,21 +1,21 @@
-import { h, render } from 'preact';
-import mdl from 'material-design-lite/material';
+import { h, render } from "preact";
+import mdl from "material-design-lite/material";
 
-import Reporter from './components/Reporter';
+import Reporter from "./components/Reporter";
 
 window.addEventListener(
-  'load',
+  "load",
   () => {
     renderReport(window.duplicates);
   },
-  false,
+  false
 );
 
 let app;
 function renderReport(duplicates) {
   app = render(
     <Reporter data={duplicates} />,
-    document.getElementById('reporterApp'),
-    app,
+    document.getElementById("reporterApp"),
+    app
   );
 }

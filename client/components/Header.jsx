@@ -1,5 +1,5 @@
-import { h } from 'preact';
-import { Layout } from 'preact-mdl';
+import { h } from "preact";
+import { Layout } from "preact-mdl";
 
 export default () =>
   <Layout.Header>
