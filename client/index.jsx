@@ -1,5 +1,4 @@
 import { h, render } from "preact";
-import mdl from "material-design-lite/material";
 
 import Reporter from "./components/Reporter";
 
