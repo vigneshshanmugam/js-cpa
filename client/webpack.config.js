@@ -1,19 +1,16 @@
 const webpack = require("webpack");
 const path = require("path");
 
-console.log(path.resolve(__dirname, "client", "index.jsx"));
-
-const isDev = process.env.NODE_ENV === "dev";
+const isDev = process.env.NODE_ENV !== "production";
 module.exports = {
   context: __dirname,
-  entry: "./client/index",
+  entry: "./index",
   output: {
-    path: path.resolve(__dirname, "public"),
+    path: path.join(__dirname, "..", "public"),
     filename: "reporter.js",
     publicPath: "/"
   },
   resolve: {
-    // modules: [path.resolve(__dirname\), 'node_modules'],
     extensions: [".js", ".jsx", ".css"]
   },
   devtool: isDev ? "eval" : "source-map",
@@ -27,7 +24,23 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        use: ["style-loader", "css-loader", "postcss-loader"]
+        use: [
+          "style-loader",
+          {
+            loader: "css-loader",
+            options: {
+              minimize: true
+            }
+          },
+          {
+            loader: "postcss-loader",
+            options: {
+              config: {
+                path: path.join(__dirname, "postcss.config.js")
+              }
+            }
+          }
+        ]
       }
     ]
   },
