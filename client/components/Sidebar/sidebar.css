@@ -1,0 +1,33 @@
+@import '../../style/colors';
+@import '../../style/variables';
+@import '../../style/mixins';
+
+:root {
+  --sidebar-title-line-height: 40px;
+  --sidebar-title-padding-left: 20px;
+}
+
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+
+  position: absolute;
+
+  width: var(--sidebar-width);
+  height: 100%;
+  max-height: 100%;
+
+  box-sizing: border-box;
+  border-right: 1px solid var(--palette-100);
+  background: var(--palette-50);
+
+  color: var(--color-black);
+
+  & .sidebar-title {
+    @mixin typo-title;
+    line-height: var(--sidebar-title-line-height);
+    padding-left: var(--sidebar-title-padding-left);
+    font-weight: var(--font-weight-normal);
+  }
+}

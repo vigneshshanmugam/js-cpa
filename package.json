@@ -8,7 +8,7 @@
   },
   "scripts": {
     "test": "jest",
-    "build": "webpack --config client/webpack.config.js"
+    "build": "NODE_ENV=production webpack --config client/webpack.config.js"
   },
   "keywords": ["code", "repetition", "pattern", "duplication", "javascript"],
   "author": "Vignesh Shanmugam <vignesh.shanmugam22@gmail.com> (https://vigneshh.in)",
@@ -33,16 +33,20 @@
     "babel-plugin-transform-class-properties": "6.24.1",
     "babel-plugin-transform-react-jsx": "6.24.1",
     "babel-preset-env": "1.6.0",
+    "classnames": "2.2.5",
     "css-loader": "0.28.4",
     "exports-loader": "0.6.4",
     "jest": "^20.0.4",
     "mkdirp": "0.5.1",
     "normalize.css": "7.0.0",
     "postcss": "6.0.8",
+    "postcss-apply": "0.8.0",
     "postcss-cssnext": "3.0.2",
     "postcss-import": "10.0.0",
     "postcss-import-url": "2.2.0",
     "postcss-loader": "2.0.6",
+    "postcss-mixins": "6.0.1",
+    "postcss-nesting": "4.0.1",
     "preact": "8.2.1",
     "style-loader": "0.18.2",
     "webpack": "3.4.1"

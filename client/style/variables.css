@@ -1,0 +1,38 @@
+:root {
+  --unit: 10px;
+
+  --color-background: var(--color-white);
+  --color-text: var(--color-black);
+
+  --color-primary: var(--palette-500);
+  --color-primary-dark: var(--palette-700);
+
+  --preferred-font: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto",
+    "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+
+  --font-size: calc(1.6 * var(--unit));
+  --font-weight-thin: 300;
+  --font-weight-normal: 400;
+  --font-weight-bold: 700;
+
+  --sidebar-width: 200px;
+
+  --reset {
+    box-sizing: border-box;
+    font-family: var(--preferred-font);
+    -webkit-font-smoothing: antialiased;
+    font-smoothing: antialiased;
+    text-size-adjust: 100%;
+
+    & *,
+    & *::after,
+    & *::before {
+      box-sizing: border-box;
+      -webkit-font-smoothing: antialiased;
+      font-smoothing: antialiased;
+      text-size-adjust: 100%;
+      -webkit-touch-callout: none;
+    }
+  }
+}

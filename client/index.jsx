@@ -13,9 +13,9 @@ window.addEventListener(
 );
 
 let app;
-function renderReport(duplicates) {
+function renderReport({ data }) {
   app = render(
-    <Reporter data={duplicates} />,
+    <Reporter data={data} />,
     document.getElementById("reporterApp"),
     app
   );

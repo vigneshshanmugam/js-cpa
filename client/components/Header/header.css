@@ -1,0 +1,32 @@
+@import '../../style/colors';
+@import '../../style/variables';
+@import '../../style/mixins';
+
+:root {
+  --header-height: 40px;
+}
+
+.header {
+  background: var(--color-primary);
+  color: var(--color-white);
+  height: var(--header-height);
+  padding: 0 10px;
+
+  @apply --reset;
+
+  & .header-row {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    flex-shrink: 0;
+    box-sizing: border-box;
+    align-self: stretch;
+    align-items: center;
+    margin: 0;
+    height: var(--header-height);
+  }
+
+  & .header-title {
+    @mixin typo-title;
+  }
+}

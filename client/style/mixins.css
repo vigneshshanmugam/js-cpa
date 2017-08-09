@@ -1,0 +1,11 @@
+@define-mixin typo-title {
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: 0.02em;
+  display: block;
+  position: relative;
+
+  font-weight: var(--font-weight-bold);
+  box-sizing: border-box;
+}
