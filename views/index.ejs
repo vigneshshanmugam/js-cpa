@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>
+    JS-CPA Report
+  </title>
+  <% if (mode === 'static') { %>
+    <script>
+      <!-- <%= appFileName %>  -->
+        <%- dumpAssets(appFileName) %>
+    </script>
+    <% } %>
+</head>
+
+<body>
+  <div id="reporterApp"></div>
+  <script>
+      window.duplicates = <%- duplicates %>
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,21 @@
+:root {
+  --palette-50: rgb(224, 242, 241);
+  --palette-100: rgb(178, 223, 219);
+  --palette-200: rgb(128, 203, 196);
+  --palette-300: rgb(77, 182, 172);
+  --palette-400: rgb(38, 166, 154);
+  --palette-500: rgb(0, 150, 136);
+  --palette-600: rgb(0, 137, 123);
+  --palette-700: rgb(0, 121, 107);
+  --palette-800: rgb(0, 105, 92);
+  --palette-900: rgb(0, 77, 64);
+  --palette-a100: rgb(167, 255, 235);
+  --palette-a200: rgb(100, 255, 218);
+  --palette-a400: rgb(29, 233, 182);
+  --palette-a700: rgb(0, 191, 165);
+
+  --color-black: rgb(0, 0, 0);
+  --color-white: rgb(255, 255, 255);
+  --color-dark-contrast: var(--color-white);
+  --color-light-contrast: var(--color-black);
+}

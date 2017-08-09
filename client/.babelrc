@@ -1,0 +1,16 @@
+{
+  "presets": [
+    [
+      "env",
+      {
+        "targets": {
+          "browsers": ["> 5%", "last 2 versions"]
+        }
+      }
+    ]
+  ],
+  "plugins": [
+    ["transform-react-jsx", { "pragma": "h" }],
+    "transform-class-properties"
+  ]
+}
