@@ -1,0 +1,20 @@
+@import '../../style/colors';
+@import '../../style/variables';
+@import '../../style/mixins';
+
+:root {
+  --content-padding-left: 20px;
+}
+
+.content {
+  position: relative;
+  display: inline-block;
+  overflow-y: auto;
+  overflow-x: hidden;
+  flex-grow: 1;
+  z-index: 1;
+  -webkit-overflow-scrolling: touch;
+  margin-left: var(--sidebar-width);
+  padding-left: var(--content-padding-left);
+  padding-top: var(--content-padding-left);
+}

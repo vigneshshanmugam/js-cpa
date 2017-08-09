@@ -1,0 +1,8 @@
+@import 'normalize.css';
+@import './colors';
+@import './variables';
+
+* {
+  font-size: var(--font-size);
+  @apply --reset;
+}
