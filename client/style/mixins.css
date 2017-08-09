@@ -2,10 +2,24 @@
   font-size: 20px;
   font-weight: 500;
   line-height: 1;
-  letter-spacing: 0.02em;
+  letter-spacing: 0.1px;
   display: block;
   position: relative;
 
   font-weight: var(--font-weight-bold);
   box-sizing: border-box;
+}
+
+@define-mixin typo-item-head {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  letter-spacing: 0.1px;
+}
+
+@define-mixin typo-item-sub {
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 24px;
+  letter-spacing: 0;
 }

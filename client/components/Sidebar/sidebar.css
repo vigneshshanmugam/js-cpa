@@ -3,8 +3,13 @@
 @import '../../style/mixins';
 
 :root {
-  --sidebar-title-line-height: 40px;
-  --sidebar-title-padding-left: 20px;
+  --sidebar-title-line-height: 30px;
+  --sidebar-title-padding-horizontal: 20px;
+  --sidebar-title-padding-vertical: 20px;
+
+  --list-item-min-height: 40px;
+  --list-item-height: 50px;
+  --list-item-min-padding: 0 20px;
 }
 
 .sidebar {
@@ -27,7 +32,47 @@
   & .sidebar-title {
     @mixin typo-title;
     line-height: var(--sidebar-title-line-height);
-    padding-left: var(--sidebar-title-padding-left);
+    padding-left: var(--sidebar-title-padding-horizontal);
+    padding-right: var(--sidebar-title-padding-horizontal);
+    padding-top: var(--sidebar-title-padding-vertical);
     font-weight: var(--font-weight-normal);
+  }
+
+  & .sidebar-list {
+    display: block;
+    padding: 0;
+    list-style: none;
+
+    & .sidebar-list-item {
+      @mixin typo-item-head;
+      line-height: 1;
+      display: flex;
+      min-height: var(--list-item-min-height);
+      height: var(--list-item-height);
+      box-sizing: border-box;
+      flex-direction: row;
+      flex-wrap: nowrap;
+      align-items: center;
+      padding: var(--list-item-min-padding);
+      cursor: default;
+      color: var(--color-black);
+      overflow: hidden;
+
+      cursor: pointer;
+
+      & .sidebar-list-item-content {
+        height: 48px;
+        line-height: 20px;
+        display: block;
+
+        & .sidebar-list-item-content-sub {
+          @mixin typo-item-sub;
+          line-height: 18px;
+          color: var(--palette-500);
+          display: block;
+          padding: 0;
+        }
+      }
+    }
   }
 }

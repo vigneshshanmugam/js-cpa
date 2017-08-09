@@ -18,7 +18,7 @@ export default class Reporter extends Component {
       <div class="js-cpa">
         <Header />
         <div className="layout">
-          <Sidebar />
+          <Sidebar data={data} />
           <Content />
         </div>
       </div>

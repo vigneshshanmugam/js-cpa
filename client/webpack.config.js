@@ -1,6 +1,8 @@
 const webpack = require("webpack");
 const path = require("path");
 
+const BabiliPlugin = require("babili-webpack-plugin");
+
 const isDev = process.env.NODE_ENV !== "production";
 module.exports = {
   context: __dirname,
@@ -49,6 +51,7 @@ module.exports = {
       // plugins.push([new webpack.NamedModulesPlugin()]);
       return plugins;
     }
+    plugins.push(new BabiliPlugin());
     return plugins;
   })([])
 };
