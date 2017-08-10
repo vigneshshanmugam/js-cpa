@@ -46,12 +46,9 @@ module.exports = {
       }
     ]
   },
-  plugins: (plugins => {
-    if (isDev) {
-      // plugins.push([new webpack.NamedModulesPlugin()]);
-      return plugins;
-    }
-    plugins.push(new BabiliPlugin());
-    return plugins;
-  })([])
+  plugins: [].concat(
+    isDev
+      ? []
+      : [/*new BabiliPlugin(),*/ new webpack.optimize.AggressiveMergingPlugin()]
+  )
 };

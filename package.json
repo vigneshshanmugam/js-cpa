@@ -40,7 +40,6 @@
     "babel-core": "6.25.0",
     "babel-loader": "7.1.1",
     "babel-plugin-transform-class-properties": "6.24.1",
-    "babel-plugin-transform-react-jsx": "6.24.1",
     "babel-preset-env": "1.6.0",
     "babili-webpack-plugin": "0.1.2",
     "classnames": "2.2.5",
