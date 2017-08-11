@@ -13,13 +13,12 @@ export default class Reporter extends Component {
 
   render() {
     const { data } = this.props;
-    console.log(data);
     return (
       <div class="js-cpa">
         <Header />
         <div className="layout">
           <Sidebar data={data} />
-          <Content />
+          <Content data={data[0]} />
         </div>
       </div>
     );

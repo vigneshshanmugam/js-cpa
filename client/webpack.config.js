@@ -13,7 +13,7 @@ module.exports = {
     publicPath: "/"
   },
   resolve: {
-    extensions: [".js", ".jsx", ".css"]
+    extensions: [".js", ".jsx"]
   },
   devtool: isDev ? "eval" : "source-map",
   watch: isDev,

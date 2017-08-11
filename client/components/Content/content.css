@@ -17,4 +17,10 @@
   margin-left: var(--sidebar-width);
   padding-left: var(--content-padding-left);
   padding-top: var(--content-padding-left);
+
+  & .print-wrapper {
+    display: grid;
+    grid-gap: 10px;
+    grid-template-columns: 50% 50%;
+  }
 }
