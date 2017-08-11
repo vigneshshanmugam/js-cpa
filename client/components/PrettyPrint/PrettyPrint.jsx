@@ -25,7 +25,6 @@ export default class PrettyPrint extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    console.log("Received", new Date());
     this.setState({
       render: false,
       shouldUpdate: true
@@ -35,7 +34,6 @@ export default class PrettyPrint extends Component {
   componentDidUpdate() {
     if (this.state.shouldUpdate) {
       setTimeout(() => {
-        console.log("Updated", new Date());
         this.setState(
           {
             render: true,
