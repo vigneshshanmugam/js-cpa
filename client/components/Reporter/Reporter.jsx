@@ -9,16 +9,37 @@ import "./reporter.css";
 export default class Reporter extends Component {
   constructor(...args) {
     super(...args);
+    this.state = {
+      reportType: "count",
+      activeIndex: 0
+    };
+
+    this.handleItemChange = this.handleItemChange.bind(this);
   }
 
-  render() {
-    const { data } = this.props;
+  handleItemChange(index) {
+    this.setState({
+      activeIndex: index
+    });
+  }
+
+  render({ data }, { reportType, activeIndex }) {
+    const sidebarProps = {
+      data,
+      reportType,
+      handleItemChange: this.handleItemChange,
+      activeIndex
+    };
+    const contentProps = {
+      data: data[activeIndex],
+      reportType
+    };
     return (
       <div class="js-cpa">
         <Header />
         <div className="layout">
-          <Sidebar data={data} />
-          <Content data={data[0]} />
+          <Sidebar {...sidebarProps} />
+          <Content {...contentProps} />
         </div>
       </div>
     );

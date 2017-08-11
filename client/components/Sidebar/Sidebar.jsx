@@ -5,26 +5,31 @@ import "./sidebar.css";
 
 const BASE_CLASS = "sidebar";
 
-const Sidebar = props => {
-  const { data } = props;
+const Sidebar = ({ data, handleItemChange, activeIndex }) => {
   // Get the length of the matching function
   const getFirstFunctionMatchLength = list => {
-    if (list.length <= 0) {
+    if (!list.length) {
       return null;
     }
-    console.log(!list[0] || !list[0].matchingCode);
     if (!list[0] || !list[0].matchingCode) {
       return null;
     }
-    console.log(list[0].matchingCode.length);
     return list[0].matchingCode.length;
   };
   return (
     <div className={BASE_CLASS}>
       <div className={`${BASE_CLASS}-title`}>Duplicates by count</div>
       <ul className={`${BASE_CLASS}-list`}>
-        {data.map(value =>
-          <li className={`${BASE_CLASS}-list-item`}>
+        {data.map((value, index) =>
+          <li
+            className={cx(`${BASE_CLASS}-list-item`, {
+              active: index === activeIndex
+            })}
+            onClick={() => {
+              // Send the index of the clicked item
+              handleItemChange(index);
+            }}
+          >
             <span className={`${BASE_CLASS}-list-item-content`}>
               <span>
                 {`${value.length} duplicates`}

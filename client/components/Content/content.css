@@ -23,4 +23,10 @@
     grid-gap: 10px;
     grid-template-columns: 50% 50%;
   }
+
+  & .print-title {
+    @mixin typo-item-sub;
+    margin: 0;
+    padding: 0;
+  }
 }

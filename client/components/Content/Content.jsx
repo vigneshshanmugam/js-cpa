@@ -7,8 +7,7 @@ import "./content.css";
 
 const BASE_CLASS = "content";
 
-const Content = props => {
-  const { data } = props;
+const Content = ({ data }) => {
   return (
     <div className={BASE_CLASS}>
       <div className={"print-wrapper"}>
@@ -16,6 +15,7 @@ const Content = props => {
           return data.map(d => {
             const {
               fileContent,
+              id,
               loc: {
                 end: { line: endLine } = {},
                 start: { line: startLine } = {}
@@ -23,6 +23,9 @@ const Content = props => {
             } = d;
             return (
               <div className={"print-area"}>
+                <h6 className={"print-title"}>
+                  File name: {id}
+                </h6>
                 <PrettyPrint
                   dataLine={`${startLine}-${endLine}`}
                   className={cx("language-javascript", "line-numbers")}

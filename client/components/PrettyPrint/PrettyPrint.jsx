@@ -14,33 +14,62 @@ export default class PrettyPrint extends Component {
   constructor(...args) {
     super(...args);
     this.highlight = this.highlight.bind(this);
+    this.state = {
+      render: true,
+      shouldUpdate: false
+    };
   }
 
   componentDidMount() {
     this.highlight();
   }
 
+  componentWillReceiveProps(nextProps) {
+    console.log("Received", new Date());
+    this.setState({
+      render: false,
+      shouldUpdate: true
+    });
+  }
+
   componentDidUpdate() {
-    this.highlight();
+    if (this.state.shouldUpdate) {
+      setTimeout(() => {
+        console.log("Updated", new Date());
+        this.setState(
+          {
+            render: true,
+            shouldUpdate: false
+          },
+          () => {
+            this.highlight();
+          }
+        );
+      }, 0);
+    }
   }
 
   highlight() {
     Prism.highlightElement(this._domNode);
   }
 
-  render(props, state) {
-    const { children, className, dataLine } = props;
-
-    const elProps = Object.assign(
-      {},
-      {
-        className: cx(BASE_CLASS, className),
-        "data-line": dataLine
-      }
-    );
+  render({ children, className, dataLine }, { render }) {
+    const preProps = {
+      className: cx(BASE_CLASS),
+      "data-line": dataLine
+    };
+    const codeProps = {
+      className: cx(className),
+      ref: ref => (this._domNode = ref)
+    };
+    // Doing a reset like this is the only way
+    // to reset prismjs as the API does not provide a reset function
+    if (!render) {
+      return null;
+    }
     return (
-      <pre {...elProps}>
-        <code ref={ref => (this._domNode = ref)} className={className}>
+      <pre {...preProps}>
+        <code {...codeProps}>
           {children}
         </code>
       </pre>

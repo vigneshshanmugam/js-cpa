@@ -60,6 +60,10 @@
 
       cursor: pointer;
 
+      &.active {
+        background-color: var(--palette-100);
+      }
+
       & .sidebar-list-item-content {
         height: 48px;
         line-height: 20px;
