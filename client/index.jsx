@@ -4,13 +4,9 @@ import Reporter from "./components/Reporter";
 
 import "./style/index.css";
 
-window.addEventListener(
-  "load",
-  () => {
-    renderReport(window.duplicates);
-  },
-  false
-);
+window.addEventListener("load", () => {
+  renderReport(window.duplicates);
+});
 
 let app;
 function renderReport({ data }) {
