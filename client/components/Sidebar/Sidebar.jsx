@@ -16,6 +16,9 @@ const Sidebar = ({ data, handleItemChange, activeIndex }) => {
     }
     return list[0].matchingCode.length;
   };
+  if (!data || !data.length) {
+    return;
+  }
   return (
     <div className={BASE_CLASS}>
       <div className={`${BASE_CLASS}-title`}>Duplicates by count</div>

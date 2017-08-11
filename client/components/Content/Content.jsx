@@ -8,6 +8,9 @@ import "./content.css";
 const BASE_CLASS = "content";
 
 const Content = ({ data }) => {
+  if (!data || !data.length) {
+    return;
+  }
   return (
     <div className={BASE_CLASS}>
       <div className={"print-wrapper"}>
