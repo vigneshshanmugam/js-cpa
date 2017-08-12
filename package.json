@@ -10,18 +10,9 @@
     "test": "jest",
     "build": "NODE_ENV=production webpack --config client/webpack.config.js"
   },
-  "keywords": [
-    "code",
-    "repetition",
-    "pattern",
-    "duplication",
-    "javascript"
-  ],
+  "keywords": ["code", "repetition", "pattern", "duplication", "javascript"],
   "author": "Vignesh Shanmugam <vignesh.shanmugam22@gmail.com> (https://vigneshh.in)",
-  "contributors": [
-    "Boopathi Rajaa",
-    "Vignesh Shanmugam"
-  ],
+  "contributors": ["Boopathi Rajaa", "Vignesh Shanmugam"],
   "homepage": "https://github.com/vigneshshanmugam/js-cpa",
   "license": "MIT",
   "repository": {
@@ -33,8 +24,7 @@
     "babylon": "^7.0.0-beta.18",
     "chalk": "^2.0.1",
     "commander": "^2.11.0",
-    "ejs": "^2.5.7",
-    "purecss": "^1.0.0"
+    "ejs": "^2.5.7"
   },
   "devDependencies": {
     "babel-core": "6.25.0",
@@ -44,7 +34,6 @@
     "babili-webpack-plugin": "0.1.2",
     "classnames": "2.2.5",
     "css-loader": "0.28.4",
-    "exports-loader": "0.6.4",
     "extract-text-webpack-plugin": "3.0.0",
     "jest": "^20.0.4",
     "mkdirp": "0.5.1",
@@ -62,10 +51,5 @@
     "style-loader": "0.18.2",
     "webpack": "3.4.1"
   },
-  "files": [
-    "bin",
-    "lib",
-    "LICENSE",
-    "README.md"
-  ]
+  "files": ["bin", "lib", "LICENSE", "README.md"]
 }

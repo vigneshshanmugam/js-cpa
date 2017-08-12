@@ -74,6 +74,7 @@ module.exports = {
       ? []
       : [
           new BabiliPlugin(),
+          new webpack.optimize.ModuleConcatenationPlugin(),
           new webpack.optimize.AggressiveMergingPlugin(),
           new ExtractTextPlugin("[name].css")
         ]
