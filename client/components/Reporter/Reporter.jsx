@@ -4,7 +4,7 @@ import Header from "../Header";
 import Sidebar from "../Sidebar";
 import Content from "../Content";
 
-import "./reporter.css";
+import styles from "./reporter.css";
 
 export default class Reporter extends Component {
   constructor(...args) {
@@ -35,9 +35,9 @@ export default class Reporter extends Component {
       reportType
     };
     return (
-      <div class="js-cpa">
+      <div class={styles.jsCpa}>
         <Header />
-        <div className="layout">
+        <div className={styles.layout}>
           <Sidebar {...sidebarProps} />
           <Content {...contentProps} />
         </div>

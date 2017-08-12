@@ -1,6 +1,5 @@
-@import '../../style/colors';
-@import '../../style/variables';
-@import '../../style/mixins';
+@import '../../style/colors.css';
+@import '../../style/variables.css';
 
 :root {
   --header-height: 40px;
@@ -12,21 +11,43 @@
   height: var(--header-height);
   padding: 0 10px;
 
-  @apply --reset;
+  box-sizing: border-box;
+  font-family: var(--preferred-font);
+  -webkit-font-smoothing: antialiased;
+  font-smoothing: antialiased;
+  text-size-adjust: 100%;
 
-  & .header-row {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    flex-shrink: 0;
+  & *,
+  & *::after,
+  & *::before {
     box-sizing: border-box;
-    align-self: stretch;
-    align-items: center;
-    margin: 0;
-    height: var(--header-height);
+    -webkit-font-smoothing: antialiased;
+    font-smoothing: antialiased;
+    text-size-adjust: 100%;
+    -webkit-touch-callout: none;
   }
+}
 
-  & .header-title {
-    @mixin typo-title;
-  }
+.headerRow {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  flex-shrink: 0;
+  box-sizing: border-box;
+  align-self: stretch;
+  align-items: center;
+  margin: 0;
+  height: var(--header-height);
+}
+
+.headerTitle {
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: 0.1px;
+  display: block;
+  position: relative;
+
+  font-weight: var(--font-weight-bold);
+  box-sizing: border-box;
 }

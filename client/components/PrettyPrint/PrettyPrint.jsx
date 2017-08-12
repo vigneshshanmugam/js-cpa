@@ -6,6 +6,9 @@ import Prism from "prismjs";
 import "prismjs/plugins/line-numbers/prism-line-numbers";
 import "prismjs/plugins/line-highlight/prism-line-highlight";
 
+import "prismjs/themes/prism-okaidia.css";
+import "prismjs/plugins/line-numbers/prism-line-numbers.css";
+import "prismjs/plugins/line-highlight/prism-line-highlight.css";
 import "./prettyprint.css";
 
 const BASE_CLASS = "pretty-print";

@@ -1,20 +1,19 @@
-@import '../../style/colors';
-@import '../../style/variables';
-@import '../../style/mixins';
+@import '../../style/colors.css';
+@import '../../style/variables.css';
 
-.js-cpa {
+.jsCpa {
   position: absolute;
   width: 100%;
   height: 100%;
+}
 
-  & .layout {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    overflow-y: auto;
-    overflow-x: hidden;
-    position: relative;
-    -webkit-overflow-scrolling: touch;
-  }
+.layout {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  overflow-x: hidden;
+  position: relative;
+  -webkit-overflow-scrolling: touch;
 }

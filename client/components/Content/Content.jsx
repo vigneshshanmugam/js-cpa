@@ -3,17 +3,15 @@ import cx from "classnames";
 
 import PrettyPrint from "../PrettyPrint";
 
-import "./content.css";
-
-const BASE_CLASS = "content";
+import styles from "./content.css";
 
 const Content = ({ data }) => {
   if (!data || !data.length) {
     return;
   }
   return (
-    <div className={BASE_CLASS}>
-      <div className={"print-wrapper"}>
+    <div className={styles.content}>
+      <div className={styles.printWrapper}>
         {(() => {
           return data.map(d => {
             const {
@@ -25,8 +23,8 @@ const Content = ({ data }) => {
               } = {}
             } = d;
             return (
-              <div className={"print-area"}>
-                <h6 className={"print-title"}>
+              <div>
+                <h6 className={styles.printTitle}>
                   File name: {id}
                 </h6>
                 <PrettyPrint

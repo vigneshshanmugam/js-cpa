@@ -1,6 +1,5 @@
-@import '../../style/colors';
-@import '../../style/variables';
-@import '../../style/mixins';
+@import '../../style/colors.css';
+@import '../../style/variables.css';
 
 :root {
   --content-padding-left: 20px;
@@ -17,16 +16,19 @@
   margin-left: var(--sidebar-width);
   padding-left: var(--content-padding-left);
   padding-top: var(--content-padding-left);
+}
 
-  & .print-wrapper {
-    display: grid;
-    grid-gap: 10px;
-    grid-template-columns: 50% 50%;
-  }
+.printWrapper {
+  display: grid;
+  grid-gap: 10px;
+  grid-template-columns: 50% 50%;
+}
 
-  & .print-title {
-    @mixin typo-item-sub;
-    margin: 0;
-    padding: 0;
-  }
+.printTitle {
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 24px;
+  letter-spacing: 0;
+  margin: 0;
+  padding: 0;
 }

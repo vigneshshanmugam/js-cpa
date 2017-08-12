@@ -29,6 +29,32 @@ module.exports = {
       },
       {
         test: /\.css$/,
+        include: /node_modules/,
+        use: isDev
+          ? [
+              "style-loader",
+              {
+                loader: "css-loader",
+                options: {
+                  minimize: true
+                }
+              }
+            ]
+          : ExtractTextPlugin.extract({
+              fallback: "style-loader",
+              use: [
+                {
+                  loader: "css-loader",
+                  options: {
+                    minimize: false
+                  }
+                }
+              ]
+            })
+      },
+      {
+        test: /\.css$/,
+        exclude: /node_modules/,
         use: isDev
           ? [
               "style-loader",
@@ -53,15 +79,11 @@ module.exports = {
                 {
                   loader: "css-loader",
                   options: {
-                    minimize: true
-                  }
-                },
-                {
-                  loader: "postcss-loader",
-                  options: {
-                    config: {
-                      path: path.join(__dirname, "postcss.config.js")
-                    }
+                    minimize: false,
+                    modules: true,
+                    importLoaders: 1,
+                    localIdentName: "[name]__[local]___[hash:base64:5]",
+                    sourceMap: false
                   }
                 }
               ]

@@ -1,7 +1,7 @@
 import { h } from "preact";
 import cx from "classnames";
 
-import "./sidebar.css";
+import styles from "./sidebar.css";
 
 const BASE_CLASS = "sidebar";
 
@@ -20,24 +20,24 @@ const Sidebar = ({ data, handleItemChange, activeIndex }) => {
     return;
   }
   return (
-    <div className={BASE_CLASS}>
-      <div className={`${BASE_CLASS}-title`}>Duplicates by count</div>
-      <ul className={`${BASE_CLASS}-list`}>
+    <div className={styles.sidebar}>
+      <div className={styles["sidebar-title"]}>Duplicates by count</div>
+      <ul className={styles["sidebar-list"]}>
         {data.map((value, index) =>
           <li
-            className={cx(`${BASE_CLASS}-list-item`, {
-              active: index === activeIndex
+            className={cx(styles["sidebar-list-item"], {
+              [styles.active]: index === activeIndex
             })}
             onClick={() => {
               // Send the index of the clicked item
               handleItemChange(index);
             }}
           >
-            <span className={`${BASE_CLASS}-list-item-content`}>
+            <span className={styles["sidebar-list-item-content"]}>
               <span>
                 {`${value.length} duplicates`}
               </span>
-              <span className={`${BASE_CLASS}-list-item-content-sub`}>
+              <span className={styles["sidebar-list-item-content-sub"]}>
                 {`String length: ${getFirstFunctionMatchLength(value)}`}
               </span>
             </span>
