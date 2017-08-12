@@ -16,7 +16,7 @@
   flex-direction: column;
   flex-wrap: nowrap;
 
-  position: absolute;
+  position: fixed;
 
   width: var(--sidebar-width);
   height: 100%;
