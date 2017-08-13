@@ -12,31 +12,40 @@ const Content = ({ data }) => {
   return (
     <div className={styles.content}>
       <div className={styles.printWrapper}>
-        {(() => {
-          return data.map(d => {
-            const {
-              fileContent,
-              id,
-              loc: {
-                end: { line: endLine } = {},
-                start: { line: startLine } = {}
-              } = {}
-            } = d;
-            return (
-              <div>
-                <h6 className={styles.printTitle}>
-                  File name: {id}
-                </h6>
-                <PrettyPrint
-                  dataLine={`${startLine}-${endLine}`}
-                  className={cx("language-javascript", "line-numbers")}
-                >
-                  {fileContent}
-                </PrettyPrint>
-              </div>
-            );
-          });
-        })()}
+        {data.map((d, i) => {
+          const {
+            fileContent,
+            id,
+            loc: {
+              end: { line: endLine } = {},
+              start: { line: startLine } = {}
+            } = {}
+          } = d;
+          let outputCode;
+          outputCode = fileContent;
+          const pretttPrintProps = Object.assign(
+            {},
+            {
+              dataStart: 0,
+              dataLine: `${startLine}-${endLine}`,
+              className: cx("language-javascript", "line-numbers")
+            }
+          );
+          return (
+            <div
+              className={cx(styles.section, {
+                [styles.mainPrint]: i === 0
+              })}
+            >
+              <h6 className={styles.printTitle}>
+                File name: {id}
+              </h6>
+              <PrettyPrint {...pretttPrintProps}>
+                {outputCode}
+              </PrettyPrint>
+            </div>
+          );
+        })}
       </div>
     </div>
   );
