@@ -54,10 +54,11 @@ export default class PrettyPrint extends Component {
     Prism.highlightElement(this._domNode);
   }
 
-  render({ children, className, dataLine }, { render }) {
+  render({ children, className, dataLine, dataStart }, { render }) {
     const preProps = {
       className: cx(BASE_CLASS),
-      "data-line": dataLine
+      "data-line": dataLine,
+      "data-start": dataStart
     };
     const codeProps = {
       className: cx(className),
