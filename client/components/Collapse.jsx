@@ -1,7 +1,7 @@
 import { h, Component } from "preact";
 import cx from "classnames";
 
-import styles from "./collapse.css";
+import styles from "./Collapse.css";
 
 export default class Collapse extends Component {
   constructor(...args) {

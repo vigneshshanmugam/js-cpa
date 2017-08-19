@@ -1,5 +1,5 @@
-@import '../../style/colors.css';
-@import '../../style/variables.css';
+@import '../style/colors.css';
+@import '../style/variables.css';
 
 :root {
   --sidebar-title-line-height: 30px;

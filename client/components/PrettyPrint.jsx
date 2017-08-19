@@ -9,7 +9,7 @@ import "prismjs/plugins/line-highlight/prism-line-highlight";
 import "prismjs/themes/prism-okaidia.css";
 import "prismjs/plugins/line-numbers/prism-line-numbers.css";
 import "prismjs/plugins/line-highlight/prism-line-highlight.css";
-import "./prettyprint.css";
+import "./PrettyPrint.css";
 
 const BASE_CLASS = "pretty-print";
 

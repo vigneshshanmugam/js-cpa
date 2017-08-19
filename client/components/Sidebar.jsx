@@ -1,7 +1,7 @@
 import { h } from "preact";
 import cx from "classnames";
 
-import styles from "./sidebar.css";
+import styles from "./Sidebar.css";
 
 const BASE_CLASS = "sidebar";
 

@@ -1,7 +1,7 @@
 import { h } from "preact";
 import cx from "classnames";
 
-import styles from "./header.css";
+import styles from "./Header.css";
 
 const Header = props => {
   const { className } = props;

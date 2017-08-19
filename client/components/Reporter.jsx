@@ -1,10 +1,10 @@
 import { h, Component } from "preact";
 
-import Header from "../Header";
-import Sidebar from "../Sidebar";
-import Content from "../Content";
+import Header from "./Header";
+import Sidebar from "./Sidebar";
+import Content from "./Content";
 
-import styles from "./reporter.css";
+import styles from "./Reporter.css";
 
 export default class Reporter extends Component {
   constructor(...args) {

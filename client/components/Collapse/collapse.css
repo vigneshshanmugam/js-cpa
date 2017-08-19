@@ -1,7 +1,0 @@
-@import '../../style/colors.css';
-@import '../../style/variables.css';
-
-.collapse {
-  list-style-type: none;
-  padding: 0;
-}

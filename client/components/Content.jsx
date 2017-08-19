@@ -1,9 +1,9 @@
 import { h, Component } from "preact";
 import cx from "classnames";
 
-import PrettyPrint from "../PrettyPrint";
+import PrettyPrint from "./PrettyPrint";
 
-import styles from "./content.css";
+import styles from "./Content.css";
 
 class Content extends Component {
   constructor(...args) {
