@@ -8,7 +8,7 @@
   },
   "scripts": {
     "test": "jest",
-    "prepublish": "npm run build",
+    "start": "webpack --config client/webpack.config.js --watch",
     "build": "NODE_ENV=production webpack --config client/webpack.config.js"
   },
   "keywords": [

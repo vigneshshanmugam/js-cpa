@@ -6,6 +6,9 @@ const ExtractTextPlugin = require("extract-text-webpack-plugin");
 
 const isDev = process.env.NODE_ENV !== "production";
 module.exports = {
+  stats: {
+    modules: false
+  },
   context: __dirname,
   entry: {
     reporter: "./index"
@@ -19,7 +22,6 @@ module.exports = {
     extensions: [".js", ".jsx"]
   },
   devtool: isDev ? "eval" : "source-map",
-  watch: isDev,
   module: {
     rules: [
       {
@@ -31,22 +33,14 @@ module.exports = {
         test: /\.css$/,
         include: /node_modules/,
         use: isDev
-          ? [
-              "style-loader",
-              {
-                loader: "css-loader",
-                options: {
-                  minimize: true
-                }
-              }
-            ]
+          ? ["style-loader", "css-loader"]
           : ExtractTextPlugin.extract({
               fallback: "style-loader",
               use: [
                 {
                   loader: "css-loader",
                   options: {
-                    minimize: false
+                    minimize: true
                   }
                 }
               ]
@@ -61,15 +55,8 @@ module.exports = {
               {
                 loader: "css-loader",
                 options: {
-                  minimize: true
-                }
-              },
-              {
-                loader: "postcss-loader",
-                options: {
-                  config: {
-                    path: path.join(__dirname, "postcss.config.js")
-                  }
+                  importLoaders: 1,
+                  modules: true
                 }
               }
             ]
@@ -79,7 +66,7 @@ module.exports = {
                 {
                   loader: "css-loader",
                   options: {
-                    minimize: false,
+                    minimize: true,
                     modules: true,
                     importLoaders: 1,
                     localIdentName: "[name]__[local]___[hash:base64:5]",
@@ -91,14 +78,12 @@ module.exports = {
       }
     ]
   },
-  plugins: [].concat(
-    isDev
-      ? []
-      : [
-          new BabiliPlugin(),
-          new webpack.optimize.ModuleConcatenationPlugin(),
-          new webpack.optimize.AggressiveMergingPlugin(),
-          new ExtractTextPlugin("[name].css")
-        ]
-  )
+  plugins: isDev
+    ? []
+    : [
+        new BabiliPlugin(),
+        new webpack.optimize.ModuleConcatenationPlugin(),
+        new webpack.optimize.AggressiveMergingPlugin(),
+        new ExtractTextPlugin("[name].css")
+      ]
 };
