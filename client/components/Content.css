@@ -49,6 +49,7 @@
   padding: var(--section-padding) 0;
   border-bottom: 1px solid #ddd;
 }
+
 .sectionBody {
   display: none;
   border-bottom: 1px solid #ddd;
@@ -57,7 +58,6 @@
   padding: var(--section-padding) 0;
 }
 
-.section.active .sectionBody,
-.mainPrint .mainPrintBody {
+.section.active .sectionBody {
   display: block;
 }
