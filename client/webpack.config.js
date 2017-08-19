@@ -1,7 +1,7 @@
 const webpack = require("webpack");
 const path = require("path");
 
-const BabiliPlugin = require("babili-webpack-plugin");
+const MinifyPlugin = require("babel-minify-webpack-plugin");
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
 
 const isDev = process.env.NODE_ENV !== "production";
@@ -81,7 +81,7 @@ module.exports = {
   plugins: isDev
     ? []
     : [
-        new BabiliPlugin(),
+        new MinifyPlugin(),
         new webpack.optimize.ModuleConcatenationPlugin(),
         new webpack.optimize.AggressiveMergingPlugin(),
         new ExtractTextPlugin("[name].css")
