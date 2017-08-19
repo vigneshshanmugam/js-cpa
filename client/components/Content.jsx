@@ -8,44 +8,41 @@ import styles from "./Content.css";
 export class Section extends Component {
   constructor(...args) {
     super(...args);
+    const { start, end } = this.props.data.loc;
     this.state = {
-      isActive: this.props.idx === 0 ? true : false
+      isActive: end.line - start.line > 10 ? this.props.idx === 0 : true
     };
 
     this.toggleActive = () => this.setState({ isActive: !this.state.isActive });
   }
-  render({ data, idx, baseLine, codeLength, codeThreshold }, { isActive }) {
+
+  render({ data, baseLine, codeLength, codeThreshold }, { isActive }) {
     const {
       fileContent,
       file,
       id,
-      loc: { end: { line: endLine } = {}, start: { line: startLine } = {} } = {}
+      loc: { end: { line: endLine }, start: { line: startLine } }
     } = data;
-    let outputCode = fileContent;
+    let highlightStart = startLine;
+    let highlightEnd = endLine;
     let dataStart = baseLine;
-    let dataLine = `${startLine}-${endLine}`;
-    // If the code length is greater than threshold
-    // then print only the duplicate function and
-    // 5 lines before and after the duplicates
-    if (file.length > codeLength) {
-      let start = startLine - codeThreshold;
-      let end = endLine + codeThreshold;
 
-      // Reset the start if its less than 0
-      if (start < 0) {
-        start = 0;
-      }
-      // Reset the end if its greater than array length
-      if (end > file.length) {
-        end = file.length;
-      }
-      // Reset the starting line to the current start
-      dataStart = start;
-      // Reset the lines to highlight
-      dataLine = `${codeThreshold}-${codeThreshold + (endLine - startLine)}`;
-      // Save sliced array to outputCode
-      outputCode = file.slice(start, end).join("\n");
+    let realStartLine = startLine - codeThreshold;
+    if (realStartLine < 0) {
+      realStartLine = 0;
+    } else {
+      highlightStart -= realStartLine;
+      highlightEnd -= realStartLine;
+      dataStart += realStartLine;
     }
+    let realEndLine = endLine + codeThreshold;
+    if (realEndLine >= file.length) {
+      realEndLine = file.length;
+    }
+
+    let dataLine = `${highlightStart}-${highlightEnd}`;
+
+    const outputCode = file.slice(realStartLine, realEndLine).join("\n");
 
     return (
       <li
@@ -76,19 +73,22 @@ export class Section extends Component {
 export default ({
   data = [],
   codeLength = 40,
+  // number of lines to print before and after the highlight
   codeThreshold = 3,
   baseLine = 1
 }) =>
   <div className={styles.content}>
     <ul className={styles.printWrapper}>
-      {data.map((d, idx) =>
-        <Section
-          data={d}
-          idx={idx}
-          codeLength={codeLength}
-          codeThreshold={codeThreshold}
-          baseLine={baseLine}
-        />
-      )}
+      {data
+        .reverse()
+        .map((d, idx) =>
+          <Section
+            data={d}
+            idx={idx}
+            codeLength={codeLength}
+            codeThreshold={codeThreshold}
+            baseLine={baseLine}
+          />
+        )}
     </ul>
   </div>;
