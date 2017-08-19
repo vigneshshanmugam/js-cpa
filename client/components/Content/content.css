@@ -15,8 +15,7 @@
   z-index: 1;
   -webkit-overflow-scrolling: touch;
   margin-left: var(--sidebar-width);
-  padding-left: var(--content-padding-left);
-  padding-top: var(--content-padding-left);
+  padding: var(--content-padding-left);
 }
 
 .printWrapper {

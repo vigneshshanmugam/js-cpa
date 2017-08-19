@@ -32,58 +32,47 @@ module.exports = {
       {
         test: /\.css$/,
         include: /node_modules/,
-        use: isDev
-          ? ["style-loader", "css-loader"]
-          : ExtractTextPlugin.extract({
-              fallback: "style-loader",
-              use: [
-                {
-                  loader: "css-loader",
-                  options: {
-                    minimize: true
-                  }
-                }
-              ]
-            })
+        use: ExtractTextPlugin.extract({
+          fallback: "style-loader",
+          use: [
+            {
+              loader: "css-loader",
+              options: {
+                minimize: !isDev
+              }
+            }
+          ]
+        })
       },
       {
         test: /\.css$/,
         exclude: /node_modules/,
-        use: isDev
-          ? [
-              "style-loader",
-              {
-                loader: "css-loader",
-                options: {
-                  importLoaders: 1,
-                  modules: true
-                }
+        use: ExtractTextPlugin.extract({
+          fallback: "style-loader",
+          use: [
+            {
+              loader: "css-loader",
+              options: {
+                minimize: !isDev,
+                modules: true,
+                importLoaders: 1,
+                localIdentName: isDev
+                  ? "[name]__[local]___[hash:base64:5]"
+                  : "[hash:base64:8]"
               }
-            ]
-          : ExtractTextPlugin.extract({
-              fallback: "style-loader",
-              use: [
-                {
-                  loader: "css-loader",
-                  options: {
-                    minimize: true,
-                    modules: true,
-                    importLoaders: 1,
-                    localIdentName: "[name]__[local]___[hash:base64:5]",
-                    sourceMap: false
-                  }
-                }
-              ]
-            })
+            }
+          ]
+        })
       }
     ]
   },
-  plugins: isDev
-    ? []
-    : [
-        new MinifyPlugin(),
-        new webpack.optimize.ModuleConcatenationPlugin(),
-        new webpack.optimize.AggressiveMergingPlugin(),
-        new ExtractTextPlugin("[name].css")
-      ]
+  plugins: [new ExtractTextPlugin("[name].css")].concat(
+    isDev
+      ? []
+      : [
+          new MinifyPlugin(),
+          new webpack.optimize.ModuleConcatenationPlugin(),
+          new webpack.optimize.AggressiveMergingPlugin()
+        ]
+  )
 };

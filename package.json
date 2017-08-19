@@ -9,7 +9,8 @@
   "scripts": {
     "test": "jest",
     "start": "webpack --config client/webpack.config.js --watch",
-    "build": "NODE_ENV=production webpack --config client/webpack.config.js"
+    "build": "NODE_ENV=production webpack --config client/webpack.config.js",
+    "dev": "bash -c 'cat <(find ./public/*) <(find ./lib/*) <(find ./views/*) | entr -s \"js-cpa -m -t 1 -R html test/fixtures/*.js\"'"
   },
   "keywords": [
     "code",

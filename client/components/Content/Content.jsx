@@ -14,7 +14,6 @@ class Content extends Component {
     };
 
     this.handleItemChange = this.handleItemChange.bind(this);
-    this.shallowDiffers = this.shallowDiffers.bind(this);
   }
 
   componentDidUpdate(nextProps) {

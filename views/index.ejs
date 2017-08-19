@@ -7,21 +7,21 @@
   <title>
     JS-CPA Report
   </title>
-  <% if (mode === 'static') { %>
-    <script>
-      <!-- <%= appFileName %>  -->
-        <%- dumpAssets(appFileName) %>
-    </script>
-    <style type="text/css">
-      <%- dumpAssets(appStyleName) %>
-    </style>
-    <% } %>
+
+  <style type="text/css">
+    <%- dumpAssets(appStyleName) %>
+  </style>
 </head>
 
 <body>
   <div id="reporterApp"></div>
   <script>
-      window.duplicates = <%- duplicates %>
+    window.duplicates = <%- duplicates %>
+  </script>
+
+  <script>
+    <!-- <%= appFileName %>  -->
+    <%- dumpAssets(appFileName) %>
   </script>
 </body>
 
