@@ -41,7 +41,6 @@
 }
 
 .sectionHeader {
-  display: flex;
   cursor: pointer;
   -webkit-tap-highlight-color: transparent;
   line-height: 1.5;

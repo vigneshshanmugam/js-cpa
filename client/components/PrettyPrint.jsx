@@ -16,64 +16,34 @@ const BASE_CLASS = "pretty-print";
 export default class PrettyPrint extends Component {
   constructor(...args) {
     super(...args);
-    this.highlight = this.highlight.bind(this);
-    this.state = {
-      render: true,
-      shouldUpdate: false
-    };
+    this._timer1 = null;
+    this._timer2 = null;
   }
-
   componentDidMount() {
-    this.highlight();
+    this.highlight(this.props);
   }
-
+  shouldComponentUpdate(nextProps) {
+    return false;
+  }
   componentWillReceiveProps(nextProps) {
-    this.setState({
-      render: false,
-      shouldUpdate: true
-    });
+    this.highlight(nextProps);
   }
+  highlight(props) {
+    this._pre.dataset.line = props.dataLine;
+    this._pre.dataset.start = props.dataStart;
 
-  componentDidUpdate() {
-    if (this.state.shouldUpdate) {
-      setTimeout(() => {
-        this.setState(
-          {
-            render: true,
-            shouldUpdate: false
-          },
-          () => {
-            this.highlight();
-          }
-        );
-      }, 0);
-    }
+    clearInterval(this._timer1);
+    clearInterval(this._timer2);
+
+    this._timer1 = setTimeout(() => {
+      this._code.textContent = props.children[0];
+      this._timer2 = setTimeout(() => Prism.highlightElement(this._code), 1);
+    }, 1);
   }
-
-  highlight() {
-    Prism.highlightElement(this._domNode);
-  }
-
-  render({ children, className, dataLine, dataStart }, { render }) {
-    const preProps = {
-      className: cx(BASE_CLASS),
-      "data-line": dataLine,
-      "data-start": dataStart
-    };
-    const codeProps = {
-      className: cx(className),
-      ref: ref => (this._domNode = ref)
-    };
-    // Doing a reset like this is the only way
-    // to reset prismjs as the API does not provide a reset function
-    if (!render) {
-      return null;
-    }
+  render({ className }) {
     return (
-      <pre {...preProps}>
-        <code {...codeProps}>
-          {children}
-        </code>
+      <pre ref={ref => (this._pre = ref)}>
+        <code className={className} ref={ref => (this._code = ref)} />
       </pre>
     );
   }
