@@ -91,7 +91,7 @@ export default ({
   data = [],
   codeLength = 40,
   // number of lines to print before and after the highlight
-  codeThreshold = 3,
+  codeThreshold = 2,
   baseLine = 1
 }) =>
   <div className={styles.content}>
