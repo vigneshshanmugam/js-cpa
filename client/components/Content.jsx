@@ -8,12 +8,22 @@ import styles from "./Content.css";
 export class Section extends Component {
   constructor(...args) {
     super(...args);
-    const { start, end } = this.props.data.loc;
     this.state = {
-      isActive: end.line - start.line > 10 ? this.props.idx === 0 : true
+      isActive: this.isActive(this.props)
     };
 
     this.toggleActive = () => this.setState({ isActive: !this.state.isActive });
+  }
+
+  isActive(props) {
+    const { start, end } = props.data.loc;
+    return end.line - start.line > 10 ? props.idx === 0 : true;
+  }
+
+  componentWillReceiveProps(nextProps) {
+    this.setState({
+      isActive: this.isActive(nextProps)
+    });
   }
 
   shouldComponentUpdate(nextProps, nextState) {
@@ -34,7 +44,7 @@ export class Section extends Component {
     let highlightEnd = endLine;
     let dataStart = baseLine;
 
-    let realStartLine = startLine - codeThreshold;
+    let realStartLine = startLine - codeThreshold - 1;
     if (realStartLine < 0) {
       realStartLine = 0;
     } else {
