@@ -37,8 +37,7 @@
 }
 
 .section {
-  /* max-height: 400px; */
-  /* grid-column: 1 / 3; */
+  border-bottom: 1px solid #ddd;
 }
 
 .sectionHeader {
@@ -51,11 +50,8 @@
 }
 
 .sectionBody {
-  display: none;
-  border-bottom: 1px solid #ddd;
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
   padding: var(--section-padding) 0;
+  display: none;
 }
 
 .section.active .sectionBody {

@@ -16,6 +16,13 @@ export class Section extends Component {
     this.toggleActive = () => this.setState({ isActive: !this.state.isActive });
   }
 
+  shouldComponentUpdate(nextProps, nextState) {
+    return (
+      this.props.data.matchingCode !== nextProps.data.matchingCode ||
+      nextState.isActive !== this.state.isActive
+    );
+  }
+
   render({ data, baseLine, codeLength, codeThreshold }, { isActive }) {
     const {
       fileContent,
