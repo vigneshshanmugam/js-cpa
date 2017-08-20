@@ -17,6 +17,8 @@ export class Section extends Component {
 
   isActive(props) {
     const { start, end } = props.data.loc;
+    // heuristics: if the code to display is more than 10 lines long,
+    // then auto-collapse it
     return end.line - start.line > 10 ? props.idx === 0 : true;
   }
 
@@ -33,7 +35,7 @@ export class Section extends Component {
     );
   }
 
-  render({ data, baseLine, codeLength, codeThreshold }, { isActive }) {
+  render({ data, baseLine, margin }, { isActive }) {
     const {
       fileContent,
       file,
@@ -44,7 +46,7 @@ export class Section extends Component {
     let highlightEnd = endLine;
     let dataStart = baseLine;
 
-    let realStartLine = startLine - codeThreshold - 1;
+    let realStartLine = startLine - margin - 1;
     if (realStartLine < 0) {
       realStartLine = 0;
     } else {
@@ -52,7 +54,7 @@ export class Section extends Component {
       highlightEnd -= realStartLine;
       dataStart += realStartLine;
     }
-    let realEndLine = endLine + codeThreshold;
+    let realEndLine = endLine + margin;
     if (realEndLine >= file.length) {
       realEndLine = file.length;
     }
@@ -89,19 +91,18 @@ export class Section extends Component {
 // Content
 export default ({
   data = [],
-  codeLength = 40,
   // number of lines to print before and after the highlight
-  codeThreshold = 2,
+  margin = 2,
   baseLine = 1
 }) =>
   <div className={styles.content}>
     <ul className={styles.printWrapper}>
       {data.map((d, idx) =>
         <Section
+          key={idx}
           data={d}
           idx={idx}
-          codeLength={codeLength}
-          codeThreshold={codeThreshold}
+          margin={margin}
           baseLine={baseLine}
         />
       )}
