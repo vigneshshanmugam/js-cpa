@@ -86,16 +86,14 @@ export default ({
 }) =>
   <div className={styles.content}>
     <ul className={styles.printWrapper}>
-      {data
-        .reverse()
-        .map((d, idx) =>
-          <Section
-            data={d}
-            idx={idx}
-            codeLength={codeLength}
-            codeThreshold={codeThreshold}
-            baseLine={baseLine}
-          />
-        )}
+      {data.map((d, idx) =>
+        <Section
+          data={d}
+          idx={idx}
+          codeLength={codeLength}
+          codeThreshold={codeThreshold}
+          baseLine={baseLine}
+        />
+      )}
     </ul>
   </div>;
