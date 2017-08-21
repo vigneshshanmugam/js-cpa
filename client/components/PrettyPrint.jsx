@@ -11,8 +11,6 @@ import "prismjs/plugins/line-numbers/prism-line-numbers.css";
 import "prismjs/plugins/line-highlight/prism-line-highlight.css";
 import "./PrettyPrint.css";
 
-const BASE_CLASS = "pretty-print";
-
 export default class PrettyPrint extends Component {
   constructor(...args) {
     super(...args);
