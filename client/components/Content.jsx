@@ -5,7 +5,42 @@ import PrettyPrint from "./PrettyPrint";
 
 import styles from "./Content.css";
 
-export class Section extends Component {
+const Code = ({ sourceLines, baseLine, margin, loc }) => {
+  const { end: { line: endLine }, start: { line: startLine } } = loc;
+
+  let highlightStart = startLine;
+  let highlightEnd = endLine;
+  let dataStart = baseLine;
+
+  let realStartLine = startLine - margin - 1;
+  if (realStartLine < 0) {
+    realStartLine = 0;
+  } else {
+    highlightStart -= realStartLine;
+    highlightEnd -= realStartLine;
+    dataStart += realStartLine;
+  }
+  let realEndLine = endLine + margin;
+  if (realEndLine >= sourceLines.length) {
+    realEndLine = sourceLines.length;
+  }
+
+  let dataLine = `${highlightStart}-${highlightEnd}`;
+
+  const outputCode = sourceLines.slice(realStartLine, realEndLine).join("\n");
+
+  return (
+    <PrettyPrint
+      dataStart={dataStart}
+      dataLine={dataLine}
+      className={cx("language-javascript", "line-numbers")}
+    >
+      {outputCode}
+    </PrettyPrint>
+  );
+};
+
+export class File extends Component {
   constructor(...args) {
     super(...args);
     this.state = {
@@ -16,10 +51,11 @@ export class Section extends Component {
   }
 
   isActive(props) {
-    const { start, end } = props.data.loc;
-    // heuristics: if the code to display is more than 10 lines long,
-    // then auto-collapse it
-    return end.line - start.line > 10 ? props.idx === 0 : true;
+    let lines = 0;
+    for (let i = 0; i < props.file.sourceCode.length; i++) {
+      if (props.file.sourceCode[i] === "\n") lines++;
+    }
+    return lines < 50;
   }
 
   componentWillReceiveProps(nextProps) {
@@ -29,40 +65,17 @@ export class Section extends Component {
   }
 
   shouldComponentUpdate(nextProps, nextState) {
+    // FIXME (boopathi)
+    return true;
+
     return (
       this.props.data.matchingCode !== nextProps.data.matchingCode ||
       nextState.isActive !== this.state.isActive
     );
   }
 
-  render({ data, baseLine, margin }, { isActive }) {
-    const {
-      fileContent,
-      file,
-      id,
-      loc: { end: { line: endLine }, start: { line: startLine } }
-    } = data;
-    let highlightStart = startLine;
-    let highlightEnd = endLine;
-    let dataStart = baseLine;
-
-    let realStartLine = startLine - margin - 1;
-    if (realStartLine < 0) {
-      realStartLine = 0;
-    } else {
-      highlightStart -= realStartLine;
-      highlightEnd -= realStartLine;
-      dataStart += realStartLine;
-    }
-    let realEndLine = endLine + margin;
-    if (realEndLine >= file.length) {
-      realEndLine = file.length;
-    }
-
-    let dataLine = `${highlightStart}-${highlightEnd}`;
-
-    const outputCode = file.slice(realStartLine, realEndLine).join("\n");
-
+  render({ file, baseLine, margin }, { isActive }) {
+    const sourceLines = file.sourceCode.split("\n");
     return (
       <li
         className={cx(styles.section, {
@@ -71,17 +84,18 @@ export class Section extends Component {
       >
         <div className={styles.sectionHeader} onClick={this.toggleActive}>
           <h6 className={styles.printTitle}>
-            File name: {id}
+            {file.filename}
           </h6>
         </div>
         <div className={cx(styles.sectionBody, styles.mainPrintBody)}>
-          <PrettyPrint
-            dataStart={dataStart}
-            dataLine={dataLine}
-            className={cx("language-javascript", "line-numbers")}
-          >
-            {outputCode}
-          </PrettyPrint>
+          {file.nodes.map(node =>
+            <Code
+              sourceLines={sourceLines}
+              baseLine={baseLine}
+              margin={margin}
+              loc={node.loc}
+            />
+          )}
         </div>
       </li>
     );
@@ -92,19 +106,22 @@ export class Section extends Component {
 export default ({
   data = [],
   // number of lines to print before and after the highlight
-  margin = 2,
+  margin = 1,
   baseLine = 1
-}) =>
-  <div className={styles.content}>
-    <ul className={styles.printWrapper}>
-      {data.map((d, idx) =>
-        <Section
-          key={idx}
-          data={d}
-          idx={idx}
-          margin={margin}
-          baseLine={baseLine}
-        />
-      )}
-    </ul>
-  </div>;
+}) => {
+  return (
+    <div className={styles.content}>
+      <ul className={styles.printWrapper}>
+        {data.map((file, idx) =>
+          <File
+            key={idx}
+            file={file}
+            idx={idx}
+            margin={margin}
+            baseLine={baseLine}
+          />
+        )}
+      </ul>
+    </div>
+  );
+};

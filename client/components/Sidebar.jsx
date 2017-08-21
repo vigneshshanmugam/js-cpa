@@ -20,18 +20,24 @@ const SidebarItem = ({ title, subtitle, isActive, onChange }) =>
     </span>
   </li>;
 
-export default ({ data = [], handleItemChange, activeIndex }) =>
-  <div className={styles.sidebar}>
-    <div className={styles["sidebar-title"]}>Duplicates by count</div>
-    <ul className={styles["sidebar-list"]}>
-      {data.map((value, index) =>
-        <SidebarItem
-          key={index}
-          title={`Duplicates ${value.length}`}
-          subtitle={`fn length: ${value[0].matchingCode.length}`}
-          isActive={index === activeIndex}
-          onChange={() => handleItemChange(index)}
-        />
-      )}
-    </ul>
-  </div>;
+export default ({ data, handleItemChange, activeIndex }) => {
+  const numMatches = dups =>
+    dups.map(file => file.nodes.length).reduce((acc, cur) => acc + cur, 0);
+
+  return (
+    <div className={styles.sidebar}>
+      <div className={styles["sidebar-title"]}>Duplicates by count</div>
+      <ul className={styles["sidebar-list"]}>
+        {data.map((value, index) =>
+          <SidebarItem
+            key={index}
+            title={`Duplicates ${numMatches(value)}`}
+            subtitle={`fn length: ${value[0].nodes[0].match.length}`}
+            isActive={index === activeIndex}
+            onChange={() => handleItemChange(index)}
+          />
+        )}
+      </ul>
+    </div>
+  );
+};

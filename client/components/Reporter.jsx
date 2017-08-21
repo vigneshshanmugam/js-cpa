@@ -35,8 +35,8 @@ export default class Reporter extends Component {
       reportType
     };
     return (
-      <div class={styles.jsCpa}>
-        <Header />
+      <div className={styles.jsCpa}>
+        <Header title="JS CPA" />
         <div className={styles.layout}>
           <Sidebar {...sidebarProps} />
           <Content {...contentProps} />

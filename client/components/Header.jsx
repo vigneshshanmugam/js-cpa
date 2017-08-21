@@ -3,13 +3,13 @@ import cx from "classnames";
 
 import styles from "./Header.css";
 
-const Header = props => {
-  const { className } = props;
-
+const Header = ({ title, className }) => {
   return (
     <header className={cx(styles.header, className)}>
       <div className={styles.headerRow}>
-        <span className={styles.headerTitle}>JS CPA</span>
+        <span className={styles.headerTitle}>
+          {title}
+        </span>
       </div>
     </header>
   );
