@@ -56,3 +56,16 @@
 .section.active .sectionBody {
   display: block;
 }
+
+.codeBlock summary {
+  outline: none;
+  cursor: pointer;
+}
+
+.codeBlock details[open] summary {
+}
+
+.codeBlock summary::-webkit-details-marker {
+  color: var(--color-primary);
+  font-size: smaller;
+}
