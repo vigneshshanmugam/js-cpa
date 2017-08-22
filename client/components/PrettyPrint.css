@@ -1,8 +1,3 @@
 :global .line-highlight {
   background: rgba(124, 242, 241, .3);
 }
-
-.pre {
-  counter-reset: linenumber;
-  display: block;
-}

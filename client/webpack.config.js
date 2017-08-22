@@ -21,7 +21,7 @@ module.exports = {
   resolve: {
     extensions: [".js", ".jsx"]
   },
-  devtool: isDev ? "eval" : "source-map",
+  devtool: isDev ? "cheap-module-inline-source-map" : "source-map",
   module: {
     rules: [
       {

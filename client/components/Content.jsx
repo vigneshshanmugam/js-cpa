@@ -48,19 +48,24 @@ const Code = ({ sourceLines, baseLine, margin, loc }) => {
 
   const outputLines = sourceLines.slice(realStartLine, realEndLine);
 
-  outputLines[margin] = strSplice(
-    outputLines[margin],
-    loc.start.column,
-    0,
-    "<mark>"
-  );
+  const startLineNumber = margin;
+  const endLineNumber = outputLines.length - margin - 1;
 
-  outputLines[outputLines.length - margin - 1] = strSplice(
-    outputLines[outputLines.length - margin - 1],
-    loc.end.column + "<mark>".length,
-    0,
-    "</mark>"
-  );
+  if (startLineNumber === endLineNumber) {
+    outputLines[margin] = strSplice(
+      outputLines[margin],
+      loc.start.column,
+      0,
+      "<mark>"
+    );
+
+    outputLines[endLineNumber] = strSplice(
+      outputLines[endLineNumber],
+      loc.end.column + "<mark>".length,
+      0,
+      "</mark>"
+    );
+  }
 
   let outputCode = outputLines.join("\n");
 
@@ -68,7 +73,7 @@ const Code = ({ sourceLines, baseLine, margin, loc }) => {
     <PrettyPrint
       dataStart={dataStart}
       dataLine={dataLine}
-      className={cx("language-javascript", "line-numbers")}
+      className={cx("language-javascript", "line-numbers", styles.code)}
     >
       {outputCode}
     </PrettyPrint>
@@ -126,7 +131,7 @@ const CodeBlock = ({ sourceLines, baseLine, margin, nodes }) => {
 
   for (let i = 0; i < numLines; i++) {
     if (visibleLines[i] === STARTHIDE) {
-      targetLines[i] = "<details><summary>. . .</summary>" + targetLines[i];
+      targetLines[i] = "<details><summary>↕</summary>" + targetLines[i];
     } else if (visibleLines[i] === ENDHIDE) {
       targetLines[i] = "</details>" + targetLines[i];
     }
@@ -134,6 +139,27 @@ const CodeBlock = ({ sourceLines, baseLine, margin, nodes }) => {
 
   return (
     <PrettyPrint
+      className={cx("language-javascript", "line-numbers", styles.codeBlock)}
+    >
+      {targetLines.join("\n")}
+    </PrettyPrint>
+  );
+};
+
+const CodeBlock2 = ({ sourceLines, baseLine, margin, nodes }) => {
+  const targetLines = [...sourceLines];
+
+  let dataLine = "";
+
+  for (const node of nodes) {
+    dataLine += `${node.loc.start.line}-${node.loc.end.line},`;
+  }
+
+  console.log(dataLine);
+
+  return (
+    <PrettyPrint
+      dataLine={dataLine}
       className={cx("language-javascript", "line-numbers", styles.codeBlock)}
     >
       {targetLines.join("\n")}
@@ -189,22 +215,30 @@ export class File extends Component {
           </h6>
         </div>
         <div className={cx(styles.sectionBody, styles.mainPrintBody)}>
-          {
+          {/*
             <CodeBlock
               sourceLines={sourceLines}
               baseLine={baseLine}
               margin={margin}
               nodes={file.nodes}
             />
-          }
-          {/*file.nodes.map(node =>
+          */}
+          {file.nodes.map(node =>
             <Code
               sourceLines={sourceLines}
               baseLine={baseLine}
               margin={margin}
               loc={node.loc}
             />
-          )*/}
+          )}
+          {/*
+            <CodeBlock2
+              sourceLines={sourceLines}
+              baseLine={baseLine}
+              margin={margin}
+              nodes={file.nodes}
+            />
+          */}
         </div>
       </li>
     );

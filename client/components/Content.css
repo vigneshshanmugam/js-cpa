@@ -57,15 +57,22 @@
   display: block;
 }
 
+.code mark {
+  background-color: rgba(255, 255, 255, 0.2);
+  /* border: solid 1px white; */
+}
+
+/*
 .codeBlock summary {
   outline: none;
   cursor: pointer;
-}
-
-.codeBlock details[open] summary {
+  color: white;
 }
 
 .codeBlock summary::-webkit-details-marker {
-  color: var(--color-primary);
-  font-size: smaller;
+  display: none;
 }
+
+.codeBlock details[open] summary {
+  display: none;
+} */

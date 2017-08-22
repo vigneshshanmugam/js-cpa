@@ -4,7 +4,8 @@ import Prism from "prismjs";
 
 // Import prism plugins
 
-// import "prismjs/plugins/line-highlight/prism-line-highlight";
+import "prismjs/plugins/line-numbers/prism-line-numbers";
+import "prismjs/plugins/line-highlight/prism-line-highlight";
 import "prismjs/plugins/keep-markup/prism-keep-markup";
 // import "../plugins/Foldable";
 
@@ -31,8 +32,8 @@ export default class PrettyPrint extends Component {
     this.highlight(nextProps);
   }
   highlight(props) {
-    // this._pre.dataset.line = props.dataLine;
-    // this._pre.dataset.start = props.dataStart;
+    this._pre.dataset.line = props.dataLine;
+    this._pre.dataset.start = props.dataStart;
     // this._pre.dataset.open = "2-4,5-7,11-25";
 
     clearInterval(this._timer1);
