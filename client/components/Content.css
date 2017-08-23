@@ -58,8 +58,9 @@
 }
 
 .code mark {
-  background-color: rgba(255, 255, 255, 0.2);
-  /* border: solid 1px white; */
+  background-color: transparent;
+  border-bottom: solid 1px white;
+  /* background-color: rgba(124, 242, 241, .3); */
 }
 
 /*
