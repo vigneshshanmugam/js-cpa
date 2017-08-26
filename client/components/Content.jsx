@@ -3,7 +3,7 @@ import cx from "classnames";
 import PrettyPrint from "./PrettyPrint";
 import styles from "./Content.css";
 
-function getLineInfo({ sourceLines, loc, baseLine, margin }) {
+export function getLineInfo({ sourceLines, loc, baseLine, margin }) {
   const { end: { line: endLine }, start: { line: startLine } } = loc;
   let highlightStart = startLine;
   let highlightEnd = endLine;
@@ -35,7 +35,7 @@ function strSplice(str, idx, rem, ins) {
   return str.slice(0, idx) + ins + str.slice(idx + rem);
 }
 
-const Code = ({ sourceLines, baseLine, margin, loc }) => {
+export const Code = ({ sourceLines, baseLine, margin, loc }) => {
   const {
     dataStart,
     highlightEnd,
@@ -76,93 +76,6 @@ const Code = ({ sourceLines, baseLine, margin, loc }) => {
       className={cx("language-javascript", "line-numbers", styles.code)}
     >
       {outputCode}
-    </PrettyPrint>
-  );
-};
-
-const CodeBlock = ({ sourceLines, baseLine, margin, nodes }) => {
-  const HIDE = 0;
-  const SHOW = 1;
-  const STARTHIDE = 2;
-  const ENDHIDE = 3;
-  const OPEN = 4;
-  const CLOSED = 5;
-
-  const numLines = sourceLines.length;
-  const visibleLines = Array.from({ length: numLines }, () => HIDE);
-  const targetLines = [...sourceLines];
-
-  for (const node of nodes) {
-    let start = node.loc.start.line - margin - 1;
-    if (start < 0) start = 0;
-    let end = node.loc.end.line + margin - 1;
-    if (end >= numLines) end = numLines - 1;
-    for (let i = start; i <= end; i++) {
-      visibleLines[i] = SHOW;
-    }
-  }
-
-  let state = CLOSED;
-
-  // start
-  if (visibleLines[0] === HIDE) {
-    state = OPEN;
-    visibleLines[0] = STARTHIDE;
-  }
-
-  for (let i = 1; i < numLines - 1; i++) {
-    if (state === OPEN) {
-      if (visibleLines[i + 1] !== HIDE) {
-        state = CLOSED;
-        visibleLines[i + 1] = ENDHIDE;
-      }
-    } else {
-      if (visibleLines[i] === HIDE) {
-        state = OPEN;
-        visibleLines[i] = STARTHIDE;
-      }
-    }
-  }
-
-  if (state === OPEN) {
-    visibleLines[numLines - 1] = ENDHIDE;
-    state = CLOSED;
-  }
-
-  for (let i = 0; i < numLines; i++) {
-    if (visibleLines[i] === STARTHIDE) {
-      targetLines[i] = "<details><summary>↕</summary>" + targetLines[i];
-    } else if (visibleLines[i] === ENDHIDE) {
-      targetLines[i] = "</details>" + targetLines[i];
-    }
-  }
-
-  return (
-    <PrettyPrint
-      className={cx("language-javascript", "line-numbers", styles.codeBlock)}
-    >
-      {targetLines.join("\n")}
-    </PrettyPrint>
-  );
-};
-
-const CodeBlock2 = ({ sourceLines, baseLine, margin, nodes }) => {
-  const targetLines = [...sourceLines];
-
-  let dataLine = "";
-
-  for (const node of nodes) {
-    dataLine += `${node.loc.start.line}-${node.loc.end.line},`;
-  }
-
-  console.log(dataLine);
-
-  return (
-    <PrettyPrint
-      dataLine={dataLine}
-      className={cx("language-javascript", "line-numbers", styles.codeBlock)}
-    >
-      {targetLines.join("\n")}
     </PrettyPrint>
   );
 };
@@ -215,14 +128,6 @@ export class File extends Component {
           </h6>
         </div>
         <div className={cx(styles.sectionBody, styles.mainPrintBody)}>
-          {/*
-            <CodeBlock
-              sourceLines={sourceLines}
-              baseLine={baseLine}
-              margin={margin}
-              nodes={file.nodes}
-            />
-          */}
           {file.nodes.map(node =>
             <Code
               sourceLines={sourceLines}
@@ -231,14 +136,6 @@ export class File extends Component {
               loc={node.loc}
             />
           )}
-          {/*
-            <CodeBlock2
-              sourceLines={sourceLines}
-              baseLine={baseLine}
-              margin={margin}
-              nodes={file.nodes}
-            />
-          */}
         </div>
       </li>
     );
