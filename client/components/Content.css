@@ -60,20 +60,4 @@
 .code mark {
   background-color: transparent;
   border-bottom: solid 1px white;
-  /* background-color: rgba(124, 242, 241, .3); */
 }
-
-/*
-.codeBlock summary {
-  outline: none;
-  cursor: pointer;
-  color: white;
-}
-
-.codeBlock summary::-webkit-details-marker {
-  display: none;
-}
-
-.codeBlock details[open] summary {
-  display: none;
-} */
