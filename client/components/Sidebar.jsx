@@ -3,7 +3,7 @@ import cx from "classnames";
 
 import styles from "./Sidebar.css";
 
-const SidebarItem = ({ title, subtitle, isActive, onChange }) =>
+const SidebarItem = ({ title, subtitle, isActive, onChange }) => (
   <li
     className={cx(styles["sidebar-list-item"], {
       [styles.active]: isActive
@@ -11,32 +11,35 @@ const SidebarItem = ({ title, subtitle, isActive, onChange }) =>
     onClick={onChange}
   >
     <span className={styles["sidebar-list-item-content"]}>
-      <span>
-        {title}
-      </span>
+      <span>{title}</span>
       <span className={styles["sidebar-list-item-content-sub"]}>
         {subtitle}
       </span>
     </span>
-  </li>;
+  </li>
+);
 
-export default ({ data, handleItemChange, activeIndex }) => {
+export default ({ data, reportType, handleItemChange, activeIndex }) => {
   const numMatches = dups =>
     dups.map(file => file.nodes.length).reduce((acc, cur) => acc + cur, 0);
 
+  const getFnLength = dups => dups[0].nodes[0].match.length;
+
   return (
     <div className={styles.sidebar}>
-      <div className={styles["sidebar-title"]}>Duplicates by count</div>
+      <div className={styles["sidebar-title"]}>
+        Duplicates by {`${reportType}`}
+      </div>
       <ul className={styles["sidebar-list"]}>
-        {data.map((value, index) =>
+        {data.map((value, index) => (
           <SidebarItem
             key={index}
             title={`Duplicates ${numMatches(value)}`}
-            subtitle={`fn length: ${value[0].nodes[0].match.length}`}
+            subtitle={`fn length: ${getFnLength(value)}`}
             isActive={index === activeIndex}
             onChange={() => handleItemChange(index)}
           />
-        )}
+        ))}
       </ul>
     </div>
   );

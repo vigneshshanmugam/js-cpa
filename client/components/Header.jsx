@@ -3,16 +3,12 @@ import cx from "classnames";
 
 import styles from "./Header.css";
 
-const Header = ({ title, className }) => {
+export default ({ title, className }) => {
   return (
     <header className={cx(styles.header, className)}>
       <div className={styles.headerRow}>
-        <span className={styles.headerTitle}>
-          {title}
-        </span>
+        <span className={styles.headerTitle}>{title}</span>
       </div>
     </header>
   );
 };
-
-export default Header;

@@ -123,19 +123,17 @@ export class File extends Component {
         })}
       >
         <div className={styles.sectionHeader} onClick={this.toggleActive}>
-          <h6 className={styles.printTitle}>
-            {file.filename}
-          </h6>
+          <h6 className={styles.printTitle}>{file.filename}</h6>
         </div>
         <div className={cx(styles.sectionBody, styles.mainPrintBody)}>
-          {file.nodes.map(node =>
+          {file.nodes.map(node => (
             <Code
               sourceLines={sourceLines}
               baseLine={baseLine}
               margin={margin}
               loc={node.loc}
             />
-          )}
+          ))}
         </div>
       </li>
     );
@@ -149,18 +147,20 @@ export default ({
   margin = 1,
   baseLine = 1
 }) => {
+  const getData = data => console.log(data);
   return (
     <div className={styles.content}>
       <ul className={styles.printWrapper}>
-        {data.map((file, idx) =>
+        {data.map((file, idx) => (
           <File
+            a={getData(data)}
             key={idx}
             file={file}
             idx={idx}
             margin={margin}
             baseLine={baseLine}
           />
-        )}
+        ))}
       </ul>
     </div>
   );

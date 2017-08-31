@@ -18,9 +18,7 @@ export default class Reporter extends Component {
   }
 
   handleItemChange(index) {
-    this.setState({
-      activeIndex: index
-    });
+    this.setState({ activeIndex: index });
   }
 
   render({ data }, { reportType, activeIndex }) {
@@ -31,8 +29,7 @@ export default class Reporter extends Component {
       activeIndex
     };
     const contentProps = {
-      data: data[activeIndex],
-      reportType
+      data: data[activeIndex]
     };
     return (
       <div className={styles.jsCpa}>
