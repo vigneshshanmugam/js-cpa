@@ -1,0 +1,63 @@
+@import "../style/colors.css";
+@import "../style/variables.css";
+
+:root {
+  --content-padding-left: 20px;
+  --section-padding: 10px;
+}
+
+.content {
+  position: relative;
+  display: inline-block;
+  overflow-y: auto;
+  overflow-x: hidden;
+  flex-grow: 1;
+  z-index: 1;
+  -webkit-overflow-scrolling: touch;
+  margin-left: var(--sidebar-width);
+  padding: var(--content-padding-left);
+}
+
+.printWrapper {
+  display: grid;
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  grid-gap: 10px;
+  grid-template-columns: 100%;
+}
+
+.printTitle {
+  font-size: 14px;
+  font-weight: var(--font-weight-bold);
+  line-height: 24px;
+  letter-spacing: 0;
+  margin: 0;
+  padding: 0;
+}
+
+.section {
+  border-bottom: 1px solid #ddd;
+}
+
+.sectionHeader {
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  line-height: 1.5;
+  padding: var(--section-padding) 0;
+  border-bottom: 1px solid #ddd;
+}
+
+.sectionBody {
+  padding: var(--section-padding) 0;
+  display: none;
+}
+
+.section.active .sectionBody {
+  display: block;
+}
+
+.code mark {
+  background-color: transparent;
+  border-bottom: solid 1px white;
+}

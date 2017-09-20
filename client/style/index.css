@@ -1,0 +1,24 @@
+@import './colors.css';
+@import './variables.css';
+:global {
+  @import 'normalize.css';
+}
+
+* {
+  font-size: var(--font-size);
+  box-sizing: border-box;
+  font-family: var(--preferred-font);
+  -webkit-font-smoothing: antialiased;
+  font-smoothing: antialiased;
+  text-size-adjust: 100%;
+
+  & *,
+  & *::after,
+  & *::before {
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+    font-smoothing: antialiased;
+    text-size-adjust: 100%;
+    -webkit-touch-callout: none;
+  }
+}

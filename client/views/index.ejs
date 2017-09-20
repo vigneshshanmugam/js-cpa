@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>
+    JS-CPA Report
+  </title>
+
+  <style type="text/css">
+    <%- dumpAssets(appStyleName) %>
+  </style>
+</head>
+
+<body>
+  <div id="reporterApp"></div>
+  <script>
+    window.data = <%- data %>;
+  </script>
+
+  <script>
+    <!-- <%= appFileName %>  -->
+    <%- dumpAssets(appFileName) %>
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,92 @@
+@import "../style/colors.css";
+@import "../style/variables.css";
+
+:root {
+  --sidebar-title-line-height: 30px;
+  --sidebar-title-padding-horizontal: 20px;
+  --sidebar-title-padding-vertical: 20px;
+
+  --list-item-min-height: 40px;
+  --list-item-height: 50px;
+  --list-item-min-padding: 0 20px;
+}
+
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  position: fixed;
+  width: var(--sidebar-width);
+  height: 100%;
+  max-height: 100%;
+  box-sizing: border-box;
+  border-right: 1px solid var(--palette-100);
+  background: var(--palette-50);
+  color: var(--color-black);
+  overflow-y: auto;
+}
+
+.sidebar-title {
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: 0.1px;
+  display: block;
+  position: relative;
+
+  font-weight: var(--font-weight-bold);
+  box-sizing: border-box;
+  line-height: var(--sidebar-title-line-height);
+  padding-left: var(--sidebar-title-padding-horizontal);
+  padding-right: var(--sidebar-title-padding-horizontal);
+  padding-top: var(--sidebar-title-padding-vertical);
+  font-weight: var(--font-weight-normal);
+}
+
+.sidebar-list {
+  display: block;
+  padding: 0;
+  list-style: none;
+}
+
+.sidebar-list-item {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  letter-spacing: 0.1px;
+  line-height: 1;
+  display: flex;
+  min-height: var(--list-item-min-height);
+  height: var(--list-item-height);
+  box-sizing: border-box;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+  padding: var(--list-item-min-padding);
+  cursor: default;
+  color: var(--color-black);
+  overflow: hidden;
+
+  cursor: pointer;
+}
+
+.active {
+  background-color: var(--palette-100);
+}
+
+.sidebar-list-item-content {
+  height: 48px;
+  line-height: 20px;
+  display: block;
+}
+
+.sidebar-list-item-content-sub {
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 24px;
+  letter-spacing: 0;
+  line-height: 18px;
+  color: var(--palette-500);
+  display: block;
+  padding: 0;
+}
