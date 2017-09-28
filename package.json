@@ -1,6 +1,6 @@
 {
   "name": "js-cpa",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Code pattern analysis for JS",
   "main": "lib/index.js",
   "bin": {
@@ -10,7 +10,8 @@
     "test": "jest",
     "start": "webpack --config client/webpack.config.js --watch",
     "build": "NODE_ENV=production webpack --config client/webpack.config.js",
-    "dev": "bash -c 'cat <(find ./public/*) <(find ./lib/*) | entr -s \"./bin/js-cpa.js -m -t 1 -R html test/fixtures/*.js\"'"
+    "dev": "bash -c 'cat <(find ./public/*) <(find ./lib/*) | entr -s \"./bin/js-cpa.js -m -t 1 -R html test/fixtures/*.js\"'",
+    "prepublish": "yarn build"
   },
   "keywords": ["code", "repetition", "pattern", "duplication", "javascript"],
   "author": "Vignesh Shanmugam <vignesh.shanmugam22@gmail.com> (https://vigneshh.in)",
@@ -45,5 +46,13 @@
     "style-loader": "0.18.2",
     "webpack": "3.4.1"
   },
-  "files": ["bin", "lib", "LICENSE", "README.md"]
+  "files": [
+    "bin",
+    "lib",
+    "client/views",
+    "public/reporter.js",
+    "public/reporter.css",
+    "LICENSE",
+    "README.md"
+  ]
 }
