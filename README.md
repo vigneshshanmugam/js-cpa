@@ -11,6 +11,7 @@ Running it on [Inferno](https://github.com/infernojs/inferno)
 + Works only across function boundaries
 + Matches the longest common subsequence and ignores the children
 + Ignores comments on the output
++ HTML report generation
 
 ### Related
 
@@ -35,6 +36,8 @@ Options:
   -l, --language <language>  language (js|ts|flow)
   -t, --threshold <n>        threshold (in bytes)
   -C, --no-colors            disable colors in output
+  -R, --report <type>        generate reports (html|term)
+  -o, --report-file <path>   path for report generation
   -h, --help                 output usage information
 ```
 
