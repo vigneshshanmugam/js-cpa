@@ -27,7 +27,8 @@
     "babylon": "^7.0.0-beta.18",
     "chalk": "^2.0.1",
     "commander": "^2.11.0",
-    "ejs": "^2.5.7"
+    "ejs": "^2.5.7",
+    "mkdirp": "^0.5.1"
   },
   "devDependencies": {
     "babel-core": "6.25.0",
@@ -39,7 +40,6 @@
     "css-loader": "0.28.4",
     "extract-text-webpack-plugin": "3.0.0",
     "jest": "^20.0.4",
-    "mkdirp": "0.5.1",
     "normalize.css": "7.0.0",
     "preact": "8.2.1",
     "prismjs": "1.6.0",
