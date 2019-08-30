@@ -13,9 +13,18 @@
     "dev": "bash -c 'cat <(find ./public/*) <(find ./lib/*) | entr -s \"./bin/js-cpa.js -m -t 1 -R html test/fixtures/*.js\"'",
     "prepublish": "yarn build"
   },
-  "keywords": ["code", "repetition", "pattern", "duplication", "javascript"],
+  "keywords": [
+    "code",
+    "repetition",
+    "pattern",
+    "duplication",
+    "javascript"
+  ],
   "author": "Vignesh Shanmugam <vignesh.shanmugam22@gmail.com> (https://vigneshh.in)",
-  "contributors": ["Boopathi Rajaa", "Vignesh Shanmugam"],
+  "contributors": [
+    "Boopathi Rajaa",
+    "Vignesh Shanmugam"
+  ],
   "homepage": "https://github.com/vigneshshanmugam/js-cpa",
   "license": "MIT",
   "repository": {
@@ -23,8 +32,8 @@
     "url": "git+https://github.com/vigneshshanmugam/js-cpa.git"
   },
   "dependencies": {
-    "babel-types": "^7.0.0-alpha.15",
-    "babylon": "^7.0.0-beta.18",
+    "@babel/parser": "^7.5.5",
+    "@babel/types": "^7.5.5",
     "chalk": "^2.0.1",
     "commander": "^2.11.0",
     "ejs": "^2.5.7",

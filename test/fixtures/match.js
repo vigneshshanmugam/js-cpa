@@ -13,7 +13,7 @@ function a() {
   return `213`;
 }
 
-function a() {
+function c() {
   function foo() {
     const b = 20;
   }
