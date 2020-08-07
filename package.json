@@ -51,7 +51,7 @@
     "jest": "^20.0.4",
     "normalize.css": "7.0.0",
     "preact": "8.5.2",
-    "prismjs": "1.18.0",
+    "prismjs": "1.21.0",
     "style-loader": "0.18.2",
     "webpack": "3.4.1"
   },
