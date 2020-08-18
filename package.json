@@ -36,7 +36,7 @@
     "@babel/types": "^7.5.5",
     "chalk": "^2.0.1",
     "commander": "^3.0.1",
-    "ejs": "^2.5.7",
+    "ejs": "^3.1.5",
     "mkdirp": "^0.5.1"
   },
   "devDependencies": {
