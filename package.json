@@ -35,7 +35,7 @@
     "@babel/parser": "^7.5.5",
     "@babel/types": "^7.5.5",
     "chalk": "^2.0.1",
-    "commander": "^3.0.1",
+    "commander": "^6.1.0",
     "ejs": "^2.5.7",
     "mkdirp": "^0.5.1"
   },
