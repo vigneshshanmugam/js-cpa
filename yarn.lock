@@ -3520,10 +3520,10 @@ postcss@^6.0.1:
     source-map "^0.5.7"
     supports-color "^4.4.0"
 
-preact@8.5.2:
-  version "8.5.2"
-  resolved "https://registry.yarnpkg.com/preact/-/preact-8.5.2.tgz#2f532da485287c07369e08150cf4d23921a09789"
-  integrity sha512-37tlDJGq5IQKqGUbqPZ7qPtsTOWFyxe+ojAOFfzKo0dEPreenqrqgJuS83zGpeGAqD9h9L9Yr7QuxH2W4ZrKxg==
+preact@10.5.12:
+  version "10.5.12"
+  resolved "https://registry.yarnpkg.com/preact/-/preact-10.5.12.tgz#6a8ee8bf40a695c505df9abebacd924e4dd37704"
+  integrity sha512-r6siDkuD36oszwlCkcqDJCAKBQxGoeEGytw2DGMD5A/GGdu5Tymw+N2OBXwvOLxg6d1FeY8MgMV3cc5aVQo4Cg==
 
 prelude-ls@~1.1.2:
   version "1.1.2"
