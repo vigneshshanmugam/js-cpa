@@ -52,7 +52,7 @@
     "normalize.css": "7.0.0",
     "preact": "8.5.2",
     "prismjs": "1.18.0",
-    "style-loader": "0.18.2",
+    "style-loader": "0.23.1",
     "webpack": "3.4.1"
   },
   "files": [
