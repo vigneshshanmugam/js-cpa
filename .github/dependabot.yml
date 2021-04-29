@@ -1,0 +1,45 @@
+version: 2
+updates:
+- package-ecosystem: npm
+  directory: "/"
+  schedule:
+    interval: daily
+    time: "04:00"
+  open-pull-requests-limit: 10
+  reviewers:
+  - vigneshshanmugam
+  ignore:
+  - dependency-name: "@babel/parser"
+    versions:
+    - 7.12.11
+    - 7.12.13
+    - 7.12.14
+    - 7.12.15
+    - 7.12.16
+    - 7.12.17
+    - 7.13.4
+    - 7.13.9
+  - dependency-name: "@babel/types"
+    versions:
+    - 7.12.12
+    - 7.12.13
+    - 7.12.17
+  - dependency-name: commander
+    versions:
+    - 7.0.0
+    - 7.1.0
+  - dependency-name: preact
+    versions:
+    - 10.5.12
+  - dependency-name: ejs
+    versions:
+    - 3.1.5
+  - dependency-name: elliptic
+    versions:
+    - 6.5.3
+  - dependency-name: chalk
+    versions:
+    - 4.1.0
+  - dependency-name: handlebars
+    versions:
+    - 4.7.6
